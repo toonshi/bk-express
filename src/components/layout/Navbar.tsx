@@ -48,7 +48,7 @@ export default function Navbar() {
           </a>
           <a
             href="tel:+254700000000"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm bg-green-600 text-white hover:bg-green-700 transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-sm border-2 border-black text-black hover:bg-slate-50 transition-colors"
           >
             Call Us
           </a>
@@ -88,7 +88,7 @@ export default function Navbar() {
               </a>
               <a
                 href="tel:+254700000000"
-                className="inline-flex justify-center px-5 py-2.5 bg-green-600 text-white rounded-lg font-medium text-sm hover:bg-green-700 transition-colors"
+                className="inline-flex justify-center px-5 py-2.5 border-2 border-black text-black rounded-lg font-medium text-sm hover:bg-slate-50 transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 Call Us
