@@ -20,19 +20,19 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white">
       <div className="border border-black">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center">
           {/* Logo */}
-          <a href="/" className="flex items-center">
+          <a href="/" className="flex items-center mr-auto">
             <Image src="/logo.svg" alt="BK Express" width={180} height={57} priority />
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-12">
+          <nav className="hidden md:flex items-center gap-12 mr-12">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-bold text-slate-900 hover:text-black transition-colors"
+                className="text-sm font-extrabold text-slate-900 hover:text-black transition-colors"
               >
                 {link.label}
               </a>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-bold text-slate-900 hover:text-black py-1 transition-colors"
+                  className="text-sm font-extrabold text-slate-900 hover:text-black py-1 transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
