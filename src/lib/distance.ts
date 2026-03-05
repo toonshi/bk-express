@@ -1,5 +1,3 @@
-// OpenStreetMap Nominatim + OSRM distance calculation utilities
-
 export interface Coordinates {
   lat: number;
   lng: number;
@@ -15,10 +13,6 @@ export interface RouteResult {
   durationMinutes: number;
 }
 
-/**
- * Geocode an address string to coordinates using OpenStreetMap Nominatim.
- * Free for low-volume usage – no API key required.
- */
 export async function geocodeAddress(
   address: string
 ): Promise<GeocodingResult> {
@@ -51,10 +45,6 @@ export async function geocodeAddress(
   };
 }
 
-/**
- * Calculate road distance and duration between two coordinates using OSRM.
- * Free, open-source routing – no API key required.
- */
 export async function calculateRoute(
   origin: Coordinates,
   destination: Coordinates
@@ -84,10 +74,6 @@ export async function calculateRoute(
   };
 }
 
-/**
- * BK Express pricing model.
- * Base fee + per-km rate. Minimum charge applies.
- */
 export const PRICING = {
   baseFee: 50, // KES
   ratePerKm: 25, // KES per km
@@ -100,10 +86,6 @@ export function calculatePrice(distanceKm: number): number {
   return Math.max(calculated, PRICING.minimumFare);
 }
 
-/**
- * Estimate drop-off time based on pickup time and route duration.
- * Adds loading/unloading buffer of 30 minutes.
- */
 export function estimateDropoffTime(
   pickupDate: Date,
   durationMinutes: number
