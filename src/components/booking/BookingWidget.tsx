@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { MapPin, ArrowRight, SpinnerGap } from "@phosphor-icons/react/ssr";
+import { ArrowRight, SpinnerGap } from "@phosphor-icons/react/ssr";
 import BookingModal from "./BookingModal";
+import LocationInput from "./LocationInput";
 
 interface QuoteResult {
   distanceKm: number;
@@ -53,37 +54,25 @@ export default function BookingWidget() {
         className="bg-white rounded-2xl shadow-lg border border-slate-200 p-2 w-full max-w-2xl mx-auto"
       >
         <div className="flex flex-col sm:flex-row gap-2">
-          <div className="flex items-center gap-3 flex-1 px-4 py-3 rounded-xl bg-slate-50 focus-within:ring-2 focus-within:ring-green-500 transition-shadow">
-            <div className="w-6 h-6 rounded-full bg-green-600 flex items-center justify-center flex-shrink-0">
-              <MapPin size={12} className="text-white" />
-            </div>
-            <input
-              type="text"
-              placeholder="Pickup location"
-              value={pickup}
-              onChange={(e) => setPickup(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
-              className="flex-1 bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
-            />
-          </div>
+          <LocationInput
+            placeholder="Pickup location"
+            value={pickup}
+            onChange={setPickup}
+            onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
+            iconVariant="green"
+          />
 
           <div className="hidden sm:flex items-center justify-center text-slate-300">
             <ArrowRight size={16} />
           </div>
 
-          <div className="flex items-center gap-3 flex-1 px-4 py-3 rounded-xl bg-slate-50 focus-within:ring-2 focus-within:ring-green-500 transition-shadow">
-            <div className="w-6 h-6 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0">
-              <MapPin size={12} className="text-green-400" />
-            </div>
-            <input
-              type="text"
-              placeholder="Drop-off location"
-              value={dropoff}
-              onChange={(e) => setDropoff(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
-              className="flex-1 bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none font-medium"
-            />
-          </div>
+          <LocationInput
+            placeholder="Drop-off location"
+            value={dropoff}
+            onChange={setDropoff}
+            onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
+            iconVariant="dark"
+          />
 
           <button
             onClick={handleSeePrice}

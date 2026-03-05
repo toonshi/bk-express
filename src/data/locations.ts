@@ -1,0 +1,148 @@
+/** Curated list of Kenyan towns, suburbs, and markets for location autocomplete */
+export const KENYAN_LOCATIONS: string[] = [
+  // Nairobi — CBD & central
+  "Nairobi CBD",
+  "Westlands, Nairobi",
+  "Kilimani, Nairobi",
+  "Karen, Nairobi",
+  "Lavington, Nairobi",
+  "Upperhill, Nairobi",
+  "Parklands, Nairobi",
+  "Gigiri, Nairobi",
+  "Runda, Nairobi",
+  "Muthaiga, Nairobi",
+  "Hurlingham, Nairobi",
+  "South C, Nairobi",
+  "South B, Nairobi",
+  "Industrial Area, Nairobi",
+
+  // Nairobi — South
+  "Lang'ata, Nairobi",
+  "Ongata Rongai",
+  "Ngong",
+  "Kiserian",
+  "Racecourse, Nairobi",
+
+  // Nairobi — Eastlands
+  "Kayole, Nairobi",
+  "Umoja, Nairobi",
+  "Embakasi, Nairobi",
+  "Utawala, Nairobi",
+  "Syokimau",
+  "Imara Daima, Nairobi",
+  "Donholm, Nairobi",
+  "Komarock, Nairobi",
+  "Ruai, Nairobi",
+  "Pipeline, Nairobi",
+  "Fedha, Nairobi",
+  "Tena, Nairobi",
+
+  // Nairobi — North / Thika road
+  "Kasarani, Nairobi",
+  "Roysambu, Nairobi",
+  "Zimmermann, Nairobi",
+  "Githurai, Nairobi",
+  "Ruiru",
+  "Juja",
+  "Thika Town",
+  "Kenol",
+
+  // Nairobi — West
+  "Limuru",
+  "Kikuyu",
+  "Kinoo, Nairobi",
+  "Kabete, Nairobi",
+  "Uthiru, Nairobi",
+  "Dagoretti, Nairobi",
+
+  // Nairobi — Markets
+  "Marikiti Market, Nairobi",
+  "City Market, Nairobi",
+  "Gikomba Market, Nairobi",
+  "Wakulima Market, Nairobi",
+  "Toi Market, Nairobi",
+  "Muthurwa Market, Nairobi",
+  "Burma Market, Nairobi",
+  "Kangemi Market, Nairobi",
+
+  // Satellite towns around Nairobi
+  "Kitengela",
+  "Athi River",
+  "Mlolongo",
+  "Mavoko",
+
+  // Coast
+  "Mombasa CBD",
+  "Nyali, Mombasa",
+  "Bamburi, Mombasa",
+  "Likoni, Mombasa",
+  "Changamwe, Mombasa",
+  "Miritini, Mombasa",
+  "Mariakani",
+  "Malindi",
+  "Kilifi",
+  "Kwale",
+  "Msambweni",
+  "Voi",
+  "Taveta",
+  "Ukunda",
+  "Diani",
+
+  // Western Kenya
+  "Kisumu CBD",
+  "Milimani, Kisumu",
+  "Nyamasaria, Kisumu",
+  "Kondele, Kisumu",
+  "Mamboleo, Kisumu",
+  "Ahero",
+  "Kisii",
+  "Migori",
+  "Homabay",
+  "Siaya",
+  "Bondo",
+  "Kakamega",
+  "Vihiga",
+  "Mumias",
+
+  // Rift Valley
+  "Nakuru CBD",
+  "Naivasha",
+  "Gilgil",
+  "Narok",
+  "Kericho",
+  "Bomet",
+  "Eldoret",
+  "Iten",
+  "Eldama Ravine",
+  "Kabarnet",
+  "Kitale",
+  "Kapenguria",
+  "Lodwar",
+
+  // Central Kenya
+  "Nyeri",
+  "Karatina",
+  "Murang'a",
+  "Kerugoya",
+  "Meru",
+  "Nanyuki",
+  "Embu",
+  "Kirinyaga",
+  "Sagana",
+
+  // Eastern Kenya
+  "Machakos",
+  "Kitui",
+  "Wote",
+  "Makindu",
+  "Sultan Hamud",
+  "Garissa",
+  "Wajir",
+  "Mandera",
+
+  // North Eastern / Others
+  "Isiolo",
+  "Marsabit",
+  "Moyale",
+  "Lamu",
+];

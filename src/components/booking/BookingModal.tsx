@@ -3,7 +3,6 @@
 import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { DayPicker } from "react-day-picker";
-import "react-day-picker/src/style.css";
 import {
   X,
   MapPin,
@@ -212,13 +211,42 @@ export default function BookingModal({
                   <CalendarBlank size={16} className="text-green-600" />
                   Pickup Date
                 </label>
-                <div className="flex justify-center border border-slate-200 rounded-xl overflow-hidden">
+                <div className="border border-slate-200 rounded-xl p-4">
                   <DayPicker
                     mode="single"
                     selected={selectedDate}
                     onSelect={setSelectedDate}
                     disabled={{ before: new Date() }}
-                    classNames={{ root: "p-0", months: "p-3" }}
+                    classNames={{
+                      root: "w-full",
+                      months: "w-full",
+                      month: "w-full",
+                      month_caption:
+                        "flex items-center justify-between mb-3 px-1",
+                      caption_label:
+                        "text-sm font-semibold text-slate-900 select-none",
+                      nav: "flex items-center gap-1",
+                      button_previous:
+                        "w-7 h-7 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-500 transition-colors",
+                      button_next:
+                        "w-7 h-7 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-500 transition-colors",
+                      month_grid: "w-full border-collapse",
+                      weekdays: "flex w-full mb-1",
+                      weekday:
+                        "flex-1 text-center text-[11px] font-semibold text-slate-400 uppercase tracking-wider py-1 select-none",
+                      weeks: "w-full",
+                      week: "flex w-full mt-1",
+                      day: "flex-1 flex items-center justify-center p-0",
+                      day_button:
+                        "w-9 h-9 mx-auto text-sm rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 hover:bg-slate-100 text-slate-700 font-medium cursor-pointer",
+                      selected:
+                        "!bg-green-600 !text-white rounded-lg hover:!bg-green-700 font-bold",
+                      today: "text-green-600 font-bold",
+                      outside:
+                        "text-slate-300 hover:bg-transparent cursor-default",
+                      disabled:
+                        "text-slate-300 cursor-not-allowed hover:!bg-transparent",
+                    }}
                   />
                 </div>
               </div>
