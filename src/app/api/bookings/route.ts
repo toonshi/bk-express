@@ -22,11 +22,9 @@ export interface BookingPayload {
 
 function generateRef(): string {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  let ref = "BKX-";
-  for (let i = 0; i < 6; i++) {
-    ref += chars[Math.floor(Math.random() * chars.length)];
-  }
-  return ref;
+  const bytes = new Uint8Array(6);
+  crypto.getRandomValues(bytes);
+  return "BKX-" + Array.from(bytes, (b) => chars[b % chars.length]).join("");
 }
 
 function validate(body: Partial<BookingPayload>): string | null {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { List, X } from "@phosphor-icons/react/ssr";
 import { NAV_LINKS } from "@/data";
 
@@ -32,11 +33,8 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-green-600 flex items-center justify-center flex-shrink-0">
-              <span className="text-white text-xs font-bold leading-none">BK</span>
-            </div>
-            <span className="font-bold text-lg tracking-tight text-slate-900">BK EXPRESS</span>
+          <a href="/" className="flex items-center">
+            <Image src="/logo.svg" alt="BK Express" width={120} height={40} priority />
           </a>
 
           {/* Desktop nav */}
