@@ -17,13 +17,13 @@
   --color-dark: var(--dark);
   --color-surface: var(--surface);
   --color-border: var(--border);
-  --font-sans: var(--font-ibm);
+  --font-sans: var(--font-space-grotesk);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
 }
 
 html {

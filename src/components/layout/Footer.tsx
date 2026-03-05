@@ -9,15 +9,23 @@ export default function Footer() {
           <div>
             <h2 className="text-3xl font-bold text-white">Ready to ship?</h2>
             <p className="text-slate-400 mt-2 text-sm">
-              Get an instant price quote in seconds. No sign-up needed.
+              Get an instant price quote in seconds — or call us to arrange lorry hire.
             </p>
           </div>
-          <a
-            href="#booking"
-            className="flex-shrink-0 px-8 py-4 bg-green-600 text-white rounded-xl font-bold hover:bg-green-700 transition-colors"
-          >
-            Get a Quote →
-          </a>
+          <div className="flex-shrink-0 flex flex-col sm:flex-row items-center gap-3">
+            <a
+              href="mailto:hello@bkexpress.co.ke"
+              className="px-6 py-3 border border-white/20 text-white rounded-xl font-medium hover:bg-white/5 transition-colors text-sm"
+            >
+              Email Us
+            </a>
+            <a
+              href="#booking"
+              className="px-8 py-3 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition-colors text-sm"
+            >
+              Get a Quote →
+            </a>
+          </div>
         </div>
       </div>
 
@@ -32,8 +40,7 @@ export default function Footer() {
             <span className="font-bold text-lg tracking-tight">BK EXPRESS</span>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
-            Fast, reliable delivery across Nairobi and surrounding areas. Powered
-            by technology, driven by trust.
+            A Kenyan fleet of trucks and lorries — moving market produce, household goods, and overnight parcels across the country.
           </p>
           <div className="mt-6 space-y-2">
             <a

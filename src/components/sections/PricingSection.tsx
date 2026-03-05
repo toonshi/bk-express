@@ -12,8 +12,7 @@ export default function PricingSection() {
             Simple, transparent pricing
           </h2>
           <p className="mt-4 text-slate-500 max-w-lg mx-auto text-sm">
-            No hidden charges. Use the booking widget above to get an instant
-            quote for your exact route.
+            No hidden charges. Use the booking widget to get an exact quote for your route — or call us for lorry hire rates.
           </p>
         </div>
 

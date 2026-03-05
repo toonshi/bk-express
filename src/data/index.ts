@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { Package, Clock, ShieldCheck, Truck } from "@phosphor-icons/react/ssr";
+import { Package, Moon, Truck, House } from "@phosphor-icons/react/ssr";
 
 export interface Service {
   icon: ComponentType<{ size?: number; className?: string }>;
@@ -10,28 +10,28 @@ export interface Service {
 
 export const SERVICES: Service[] = [
   {
-    icon: Clock,
-    title: "Same-Day Delivery",
-    description: "Urgent parcels picked up and delivered within hours anywhere in the city.",
-    tag: "Express",
-  },
-  {
-    icon: Package,
-    title: "Standard Delivery",
-    description: "Scheduled deliveries at a great price for non-urgent packages and goods.",
-    tag: "Affordable",
+    icon: House,
+    title: "Luggage & Household Moving",
+    description: "Moving house or relocating? We handle furniture, appliances, and personal belongings with care — door to door across Nairobi.",
+    tag: "Moving",
   },
   {
     icon: Truck,
-    title: "Bulk & Freight",
-    description: "Large volume pickups for businesses — furniture, stock, and equipment.",
-    tag: "Business",
+    title: "Market Produce Transport",
+    description: "Early-morning pickups from Marikiti, City Market, and farms upcountry. Fresh produce delivered fast to your stall or warehouse.",
+    tag: "Produce",
   },
   {
-    icon: ShieldCheck,
-    title: "Secure Handling",
-    description: "Fragile or high-value items handled with extra care and full insurance.",
-    tag: "Protected",
+    icon: Moon,
+    title: "Overnight Parcel Delivery",
+    description: "Send parcels by night, arrive by morning. Ideal for businesses shipping between Nairobi, Mombasa, Kisumu, and Nakuru.",
+    tag: "Overnight",
+  },
+  {
+    icon: Package,
+    title: "Bulk Freight & Lorry Hire",
+    description: "Need the whole truck? Hire our lorries for large consignments, construction materials, or wholesale stock movement.",
+    tag: "Freight",
   },
 ];
 
@@ -39,51 +39,51 @@ export const STEPS = [
   {
     number: "01",
     title: "Enter locations",
-    description: "Type in your pickup and drop-off addresses. We support any location in our coverage zone.",
+    description: "Type in your pickup and drop-off addresses anywhere in our coverage zone — we support named towns and market areas.",
   },
   {
     number: "02",
     title: "See your price",
-    description: "We instantly calculate the distance using real road routing and give you a transparent price.",
+    description: "We calculate the road distance in real time and give you a clear, no-hidden-charges price before you commit.",
   },
   {
     number: "03",
     title: "Pick a date & time",
-    description: "Choose when you want us to arrive. We'll automatically calculate your estimated delivery time.",
+    description: "Choose when you want us to arrive. We confirm your estimated delivery window automatically.",
   },
   {
     number: "04",
     title: "We deliver",
-    description: "Our team arrives at your pickup location on time and ensures safe, fast delivery.",
+    description: "Our driver arrives at your gate on time. Track your shipment and reach us by call or WhatsApp any time.",
   },
 ];
 
 export const CITIES = [
-  { name: "Nairobi CBD", areas: "Westlands, Kilimani, Karen, Lavington", time: "1–2 hrs" },
-  { name: "Thika Road", areas: "Kasarani, Ruiru, Juja, Thika", time: "2–3 hrs" },
-  { name: "South Nairobi", areas: "Langata, Ongata Rongai, Kiserian", time: "2–3 hrs" },
-  { name: "Eastlands", areas: "Kayole, Umoja, Embakasi, Utawala", time: "1–2 hrs" },
+  { name: "Nairobi CBD & Westlands", areas: "Kilimani, Karen, Lavington, Upperhill", time: "1–2 hrs" },
+  { name: "Thika Road Corridor", areas: "Kasarani, Ruiru, Juja, Thika Town", time: "2–3 hrs" },
+  { name: "South Nairobi", areas: "Langata, Ongata Rongai, Kiserian, Ngong", time: "2–3 hrs" },
+  { name: "Eastlands", areas: "Kayole, Umoja, Embakasi, Utawala, Syokimau", time: "1–2 hrs" },
   { name: "Satellite Towns", areas: "Kitengela, Athi River, Limuru, Kikuyu", time: "3–5 hrs" },
-  { name: "Coming Soon", areas: "Mombasa, Kisumu, Nakuru", time: "—", comingSoon: true },
+  { name: "Upcountry Routes", areas: "Mombasa, Kisumu, Nakuru — overnight service", time: "Overnight", comingSoon: false },
 ];
 
 export const TESTIMONIALS = [
   {
     name: "Amina W.",
-    role: "Small business owner",
-    quote: "BK Express has become our go-to for deliveries. The price calculator is a game-changer — no more guessing!",
+    role: "Market trader, Marikiti",
+    quote: "They pick up my cabbages at 4 AM and they're at my stall in Westlands before 7. I haven't missed a single market day since I switched to BK Express.",
     initials: "AW",
   },
   {
     name: "Brian O.",
-    role: "E-commerce seller",
-    quote: "I was skeptical at first but the same-day service genuinely delivered in under 3 hours. Highly recommend.",
+    role: "E-commerce seller, Nairobi",
+    quote: "Sent 12 parcels overnight to Mombasa — all arrived by 8 AM. The confirmation email came instantly. This is the real deal.",
     initials: "BO",
   },
   {
     name: "Faith K.",
-    role: "Freelance designer",
-    quote: "Super easy to use. I booked on my phone in 2 minutes and my package arrived safely the same afternoon.",
+    role: "Relocating homeowner",
+    quote: "They moved my whole house in one trip. The guys were careful with my TV and fridge. Got a price online in seconds — no surprise costs at the end.",
     initials: "FK",
   },
 ];
@@ -91,44 +91,45 @@ export const TESTIMONIALS = [
 export const PLANS = [
   {
     name: "Standard",
-    tagline: "For everyday deliveries",
-    base: 150,
+    tagline: "Parcels & light goods",
+    base: 350,
     perKm: 25,
-    features: ["Same-day scheduling", "Real-time tracking", "Standard insurance", "Email confirmation"],
+    features: ["Up to 100 kg payload", "Same-day scheduling", "Email & SMS confirmation", "Standard insurance"],
     highlight: false,
   },
   {
     name: "Express",
-    tagline: "For urgent pickups",
-    base: 250,
-    perKm: 35,
-    features: ["Priority pickup", "Live GPS tracking", "Enhanced insurance", "SMS + Email updates", "Dedicated support"],
+    tagline: "Urgent & time-sensitive",
+    base: 600,
+    perKm: 40,
+    features: ["Priority pickup within 2 hrs", "Up to 500 kg payload", "Live driver tracking", "WhatsApp updates", "Enhanced insurance"],
     highlight: true,
   },
   {
-    name: "Business",
-    tagline: "For high-volume clients",
+    name: "Lorry Hire",
+    tagline: "Bulk freight & full loads",
     base: null,
     perKm: null,
-    features: ["Volume discounts", "Dedicated account manager", "Custom routing", "Monthly invoicing", "Priority SLA"],
+    features: ["Full 3-tonne lorry", "Market produce & household", "Overnight intercity routes", "Dedicated driver", "Monthly invoicing"],
     highlight: false,
   },
 ];
 
 export const NAV_LINKS = [
-  { label: "About Us", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Cities", href: "#cities" },
+  { label: "How It Works", href: "#about" },
+  { label: "Coverage", href: "#cities" },
   { label: "Pricing", href: "#pricing" },
 ];
 
 export const STATS = [
-  { value: "5,000+", label: "Deliveries completed" },
-  { value: "98%", label: "On-time rate" },
+  { value: "500+", label: "Trucks & lorries on the road" },
+  { value: "98%", label: "On-time delivery rate" },
   { value: "4.9 ★", label: "Customer rating" },
 ];
 
 export const TIME_SLOTS = [
-  "07:00", "08:00", "09:00", "10:00", "11:00", "12:00",
-  "13:00", "14:00", "15:00", "16:00", "17:00", "18:00",
+  "05:00", "06:00", "07:00", "08:00", "09:00", "10:00",
+  "11:00", "12:00", "13:00", "14:00", "15:00", "16:00",
+  "17:00", "18:00", "20:00", "22:00",
 ];

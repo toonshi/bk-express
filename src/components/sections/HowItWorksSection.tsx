@@ -9,10 +9,10 @@ export default function HowItWorksSection() {
             <span className="inline-block bg-green-600/20 text-green-400 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-green-600/20">
               How it works
             </span>
-            <h2 className="text-4xl font-bold text-white">Four simple steps</h2>
+            <h2 className="text-4xl font-bold text-white">Book in four steps</h2>
           </div>
           <p className="text-slate-400 max-w-xs text-sm leading-relaxed">
-            From quote to delivery in minutes. No paperwork, no fuss.
+            Get a price, pick your date, and our driver handles the rest. No calls needed to get a quote.
           </p>
         </div>
 
