@@ -1,87 +1,51 @@
 import { MapPin } from "@phosphor-icons/react/ssr";
-
-const CITIES = [
-  {
-    name: "Nairobi CBD",
-    areas: "Westlands, Kilimani, Karen, Lavington",
-    time: "1–2 hrs",
-  },
-  {
-    name: "Thika Road",
-    areas: "Kasarani, Ruiru, Juja, Thika",
-    time: "2–3 hrs",
-  },
-  {
-    name: "South Nairobi",
-    areas: "Langata, Ongata Rongai, Kiserian",
-    time: "2–3 hrs",
-  },
-  {
-    name: "Eastlands",
-    areas: "Kayole, Umoja, Embakasi, Utawala",
-    time: "1–2 hrs",
-  },
-  {
-    name: "Satellite Towns",
-    areas: "Kitengela, Athi River, Limuru, Kikuyu",
-    time: "3–5 hrs",
-  },
-  {
-    name: "Coming Soon",
-    areas: "Mombasa, Kisumu, Nakuru",
-    time: "—",
-    comingSoon: true,
-  },
-];
+import { CITIES } from "@/data";
 
 export default function CitiesSection() {
   return (
-    <section id="cities" className="py-24 bg-[#F6F6F6]">
+    <section id="cities" className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-14">
-          <span className="inline-block bg-[#B9FF66] text-[#1A1C22] text-xs font-bold uppercase tracking-widest px-3 py-1 rounded mb-4">
+          <span className="inline-block bg-green-50 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-green-100">
             Coverage
           </span>
-          <h2 className="text-4xl font-bold text-[#1A1C22]">
-            Where we deliver
-          </h2>
+          <h2 className="text-4xl font-bold text-slate-900">Where we deliver</h2>
+          <p className="mt-3 text-slate-500 text-sm max-w-md">
+            Currently serving Nairobi and the greater metro area, with more cities coming soon.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {CITIES.map((city) => (
             <div
               key={city.name}
-              className={`p-6 rounded-2xl border ${
+              className={`p-6 rounded-xl border transition-shadow ${
                 city.comingSoon
-                  ? "border-dashed border-gray-300 bg-white/60 opacity-60"
-                  : "border-gray-100 bg-white hover:shadow-md transition-shadow"
+                  ? "border-dashed border-slate-300 bg-white/60 opacity-60"
+                  : "border-slate-200 bg-white hover:shadow-md"
               }`}
             >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-2 mb-3">
+              <div className="flex items-start justify-between mb-3">
+                <div className="flex items-center gap-2">
                   <MapPin
                     size={16}
-                    className={
-                      city.comingSoon ? "text-gray-400" : "text-[#B9FF66]"
-                    }
+                    className={city.comingSoon ? "text-slate-400" : "text-green-600"}
                   />
-                  <h3
-                    className={`font-bold text-base ${city.comingSoon ? "text-gray-400" : "text-[#1A1C22]"}`}
-                  >
+                  <h3 className={`font-bold text-base ${city.comingSoon ? "text-slate-400" : "text-slate-900"}`}>
                     {city.name}
                   </h3>
                 </div>
                 <span
-                  className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                  className={`text-xs font-semibold px-2.5 py-1 rounded-full ${
                     city.comingSoon
-                      ? "bg-gray-100 text-gray-400"
-                      : "bg-[#B9FF66]/20 text-[#1A1C22]"
+                      ? "bg-slate-100 text-slate-400"
+                      : "bg-green-50 text-green-700 border border-green-100"
                   }`}
                 >
                   {city.time}
                 </span>
               </div>
-              <p className="text-sm text-gray-500">{city.areas}</p>
+              <p className="text-sm text-slate-500">{city.areas}</p>
             </div>
           ))}
         </div>
