@@ -10,12 +10,12 @@ export default function ServicesSection() {
               What we do
             </span>
             <h2 className="text-4xl font-bold text-slate-900">
-              Services built for speed
+              What we move
             </h2>
           </div>
           <p className="text-slate-500 max-w-sm text-sm leading-relaxed">
-            Whether it's a single parcel or a full truckload, we have a service
-            that fits your timeline and budget.
+            From a bag of cabbages to a full truckload of furniture — if it
+            needs to move, BK Express gets it there.
           </p>
         </div>
 

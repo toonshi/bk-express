@@ -9,7 +9,7 @@ import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 export default function Home() {
   return (
-    <main className="font-[family-name:var(--font-ibm)]">
+    <main className="font-[family-name:var(--font-space-grotesk)]">
       <Navbar />
       <HeroSection />
       <ServicesSection />

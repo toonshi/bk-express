@@ -9,9 +9,9 @@ export default function CitiesSection() {
           <span className="inline-block bg-green-50 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-green-100">
             Coverage
           </span>
-          <h2 className="text-4xl font-bold text-slate-900">Where we deliver</h2>
+          <h2 className="text-4xl font-bold text-slate-900">Where we operate</h2>
           <p className="mt-3 text-slate-500 text-sm max-w-md">
-            Currently serving Nairobi and the greater metro area, with more cities coming soon.
+            Covering Nairobi and surroundings daily, plus overnight runs to major upcountry towns.
           </p>
         </div>
 
