@@ -12,9 +12,12 @@ import {
   Phone,
   CheckCircle,
   SpinnerGap,
+  User,
+  Envelope,
 } from "@phosphor-icons/react/ssr";
 import { format } from "date-fns";
 import { PRICING, estimateDropoffTime } from "@/lib/distance";
+import type { BookingPayload } from "@/app/api/bookings/route";
 
 interface BookingModalProps {
   open: boolean;
@@ -56,6 +59,13 @@ export default function BookingModal({
   const [selectedTime, setSelectedTime] = useState<string>("09:00");
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [bookingRef, setBookingRef] = useState<string>("");
+
+  // Customer details
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [formError, setFormError] = useState<string | null>(null);
 
   const pickupDateTime =
     selectedDate && selectedTime
@@ -73,17 +83,55 @@ export default function BookingModal({
 
   const handleBook = async () => {
     if (!selectedDate || !selectedTime) return;
+    if (!name.trim()) { setFormError("Please enter your name."); return; }
+    if (!phone.trim()) { setFormError("Please enter your phone number."); return; }
+    if (!email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setFormError("Please enter a valid email address.");
+      return;
+    }
+    setFormError(null);
     setSubmitting(true);
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 1200));
-    setSubmitting(false);
-    setSubmitted(true);
+    try {
+      const payload: BookingPayload = {
+        name: name.trim(),
+        phone: phone.trim(),
+        email: email.trim(),
+        pickup,
+        dropoff,
+        distanceKm,
+        durationMinutes,
+        price,
+        pickupDate: pickupDateTime!.toISOString(),
+        pickupTime: selectedTime,
+        estimatedDropoff: dropoffDateTime!.toISOString(),
+      };
+      const res = await fetch("/api/bookings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? "Booking failed.");
+      setBookingRef(data.ref as string);
+      setSubmitted(true);
+    } catch (err) {
+      setFormError(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleClose = () => {
     setSubmitted(false);
     setSelectedDate(undefined);
     setSelectedTime("09:00");
+    setName("");
+    setPhone("");
+    setEmail("");
+    setFormError(null);
+    setBookingRef("");
     onClose();
   };
 
@@ -120,10 +168,15 @@ export default function BookingModal({
               <h3 className="text-2xl font-bold text-[#1A1C22]">
                 Booking Confirmed!
               </h3>
-              <p className="text-gray-500 max-w-xs">
-                We&apos;ll send you a confirmation shortly. Our team will be
-                ready on {pickupDateTime && format(pickupDateTime, "PPP 'at' p")}
-                .
+              {bookingRef && (
+                <div className="bg-[#1A1C22] text-[#B9FF66] rounded-xl px-6 py-3 font-mono font-bold text-lg tracking-widest">
+                  {bookingRef}
+                </div>
+              )}
+              <p className="text-gray-500 max-w-xs text-sm">
+                A confirmation has been sent to <strong>{email}</strong>. Our
+                team will be ready on{" "}
+                {pickupDateTime && format(pickupDateTime, "PPP 'at' p")}.
               </p>
               <button
                 onClick={handleClose}
@@ -247,6 +300,40 @@ export default function BookingModal({
                 )}
               </div>
 
+              {/* Customer details */}
+              <div>
+                <label className="flex items-center gap-2 text-sm font-semibold text-[#1A1C22] mb-3">
+                  <User size={16} />
+                  Your Details
+                </label>
+                <div className="space-y-2">
+                  <input
+                    type="text"
+                    placeholder="Full name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1C22] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B9FF66] transition-shadow"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Phone number (e.g. +254 700 000 000)"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm text-[#1A1C22] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#B9FF66] transition-shadow"
+                  />
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-200 focus-within:ring-2 focus-within:ring-[#B9FF66] transition-shadow">
+                    <Envelope size={15} className="text-gray-400 flex-shrink-0" />
+                    <input
+                      type="email"
+                      placeholder="Email address (for confirmation)"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="flex-1 bg-transparent text-sm text-[#1A1C22] placeholder-gray-400 outline-none"
+                    />
+                  </div>
+                </div>
+              </div>
+
               {/* Action buttons */}
               <div className="flex gap-3 pt-2">
                 <button
@@ -278,7 +365,13 @@ export default function BookingModal({
                 </button>
               </div>
 
-              {!selectedDate && (
+              {formError && (
+                <p className="text-xs text-center text-red-500 font-medium" role="alert">
+                  {formError}
+                </p>
+              )}
+
+              {!selectedDate && !formError && (
                 <p className="text-xs text-center text-gray-400">
                   Please select a pickup date to continue
                 </p>
