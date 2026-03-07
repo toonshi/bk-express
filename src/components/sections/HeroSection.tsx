@@ -35,7 +35,7 @@ export default function HeroSection() {
             </div>
 
             {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight max-w-xl">
+            <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 leading-[1.1] max-w-xl">
               Trucks that{" "}
               <span className="text-green-600">move Kenya</span>{" "}
               forward.

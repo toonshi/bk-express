@@ -30,7 +30,7 @@ export default function HowItWorksSection() {
                 <div className="w-12 h-12 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center mb-5">
                   <span className="text-green-400 font-bold text-sm">{step.number}</span>
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{step.title}</h3>
+                <h3 className="text-xl font-semibold text-white mb-2">{step.title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed">{step.description}</p>
               </div>
             </div>

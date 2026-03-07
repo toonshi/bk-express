@@ -31,7 +31,7 @@ export default function CitiesSection() {
                     size={16}
                     className={city.comingSoon ? "text-slate-400" : "text-green-600"}
                   />
-                  <h3 className={`font-bold text-base ${city.comingSoon ? "text-slate-400" : "text-slate-900"}`}>
+                  <h3 className={`font-semibold text-lg ${city.comingSoon ? "text-slate-400" : "text-slate-900"}`}>
                     {city.name}
                   </h3>
                 </div>
