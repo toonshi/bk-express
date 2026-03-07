@@ -33,7 +33,7 @@ export default function ServicesSection() {
                 <span className="text-xs font-bold uppercase tracking-widest text-green-600">
                   {service.tag}
                 </span>
-                <h3 className="mt-2 text-lg font-bold text-slate-900">{service.title}</h3>
+                <h3 className="mt-2 text-xl font-semibold text-slate-900">{service.title}</h3>
                 <p className="mt-2 text-sm text-slate-500 leading-relaxed">{service.description}</p>
               </div>
             );
