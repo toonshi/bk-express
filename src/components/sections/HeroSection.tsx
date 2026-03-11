@@ -26,7 +26,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative bg-white overflow-hidden min-h-[calc(100vh-104px)] flex flex-col justify-center square-grid">
+      <section className="relative bg-white overflow-hidden min-h-[calc(100vh-104px)] flex flex-col justify-center">
         <div className="relative max-w-7xl mx-auto px-6 py-20 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
 
@@ -45,9 +45,11 @@ export default function HeroSection() {
 
               {/* Headline */}
               <h1
-                className="text-[clamp(56px,7vw,96px)] text-[#111111] leading-[1.0] tracking-[-0.04em]"
+                role="heading"
+                tabIndex={0}
+                className="text-[34px] text-[#0D171A] leading-[1.0] tracking-[-0.04em]"
                 style={{
-                  fontFamily: "var(--font-display)",
+                  fontFamily: "Saans, Arial, sans-serif",
                   fontWeight: 900,
                 }}
               >
