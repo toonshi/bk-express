@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, SpinnerGap } from "@phosphor-icons/react/ssr";
+import { SpinnerGap } from "@phosphor-icons/react/ssr";
 import BookingModal from "./BookingModal";
 import LocationInput from "./LocationInput";
 
@@ -49,49 +49,46 @@ export default function BookingWidget() {
 
   return (
     <>
-      <div
-        id="booking"
-        className="bg-white/[0.04] backdrop-blur-xl rounded-2xl border border-white/[0.08] p-2 w-full overflow-hidden shadow-[0_0_40px_rgba(124,58,237,0.12)]"
-      >
-        <div className="flex flex-col md:flex-row gap-2">
-          <div className="flex-1">
-            <LocationInput
-              placeholder="Pickup location"
-              value={pickup}
-              onChange={setPickup}
-              onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
-              iconVariant="green"
-            />
-          </div>
-
-          <div className="flex-1">
-            <LocationInput
-              placeholder="Drop-off location"
-              value={dropoff}
-              onChange={setDropoff}
-              onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
-              iconVariant="yellow"
-            />
-          </div>
-
+      <div id="booking" className="w-full">
+        <div className="flex flex-col gap-2">
+          <LocationInput
+            placeholder="Pickup location"
+            value={pickup}
+            onChange={setPickup}
+            onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
+            iconVariant="dark"
+          />
+          <LocationInput
+            placeholder="Drop-off location"
+            value={dropoff}
+            onChange={setDropoff}
+            onKeyDown={(e) => e.key === "Enter" && handleSeePrice()}
+            iconVariant="dark"
+          />
           <button
             onClick={handleSeePrice}
             disabled={loading}
-            className="flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-semibold text-sm hover:bg-primary-light transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+            className="flex items-center justify-center gap-2 px-6 py-3.5 bg-[#111111] text-white rounded-lg font-semibold text-[14px] hover:bg-[#333333] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             {loading ? (
               <>
                 <SpinnerGap size={16} className="animate-spin" />
-                Processing
+                Processing…
               </>
             ) : (
-              "Get Quote →"
+              "Get Instant Quote →"
             )}
           </button>
         </div>
 
         {error && (
-          <p className="mt-2 px-4 text-xs text-red-400 font-medium">{error}</p>
+          <p
+            className="mt-2 text-[12px] text-red-600 font-medium"
+            style={{ fontFamily: "var(--font-display)" }}
+          >
+            {error}
+          </p>
         )}
       </div>
 
