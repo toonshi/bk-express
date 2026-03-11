@@ -47,7 +47,7 @@ export default function HeroSection() {
               <h1
                 role="heading"
                 tabIndex={0}
-                className="text-[34px] text-[#0D171A] leading-[1.0] tracking-[-0.04em]"
+                className="text-[56px] text-[#0D171A] leading-[1.0] tracking-[-0.04em]"
                 style={{
                   fontFamily: "Saans, Arial, sans-serif",
                   fontWeight: 900,
