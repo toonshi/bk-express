@@ -128,9 +128,9 @@ export default function HeroSection() {
             </div>
 
             {/* ── RIGHT: UI Card Stack ────────────────────────────────────── */}
-            <div className="relative flex flex-col gap-4">
+            <div className="relative">
 
-              {/* Top Card — Booking */}
+              {/* Top Card — Booking (main card) */}
               <div className="bg-white border border-[#efefef] rounded-lg overflow-hidden shadow-sm">
                 <div className="px-5 py-4 border-b border-[#efefef] flex items-center justify-between">
                   <h3
@@ -151,11 +151,11 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* Middle Card — Live Tracking (glassmorphism) */}
+              {/* Overlay Card — Live Tracking (layered on top of booking card, offset down-left) */}
               <div
-                className="relative border border-[#efefef]/60 rounded-lg overflow-hidden p-5"
+                className="relative -mt-4 mx-3 border border-[#efefef]/60 rounded-lg overflow-hidden p-5 shadow-md"
                 style={{
-                  background: "rgba(255,255,255,0.7)",
+                  background: "rgba(255,255,255,0.85)",
                   backdropFilter: "blur(24px)",
                   WebkitBackdropFilter: "blur(24px)",
                 }}
