@@ -129,11 +129,68 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* ── RIGHT: UI Card Stack ────────────────────────────────────── */}
+            {/* ── RIGHT: Truck Photo + Booking Overlay ───────────────────── */}
             <div className="relative">
 
-              {/* Top Card — Booking (main card) */}
-              <div className="bg-white border border-[#efefef] rounded-lg overflow-hidden shadow-sm">
+              {/* Hero truck image */}
+              <div className="relative rounded-xl overflow-hidden">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://github.com/user-attachments/assets/af203c77-5598-4e89-b060-770881b6ac17"
+                  alt="BK Express truck — Isuzu FRR"
+                  className="w-full object-cover"
+                  style={{ height: "420px" }}
+                />
+                {/* dark gradient so the overlay card text stays readable */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+
+                {/* Live Tracking chip — top-right corner */}
+                <div className="absolute top-4 right-4 flex items-center gap-2 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1.5 shadow-sm">
+                  <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
+                  <span
+                    className="text-[11px] font-semibold text-[#111111] tracking-widest uppercase"
+                    style={{ fontFamily: "var(--font-display)" }}
+                  >
+                    Live Tracking
+                  </span>
+                </div>
+
+                {/* Bottom overlay — route progress */}
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
+                  <div className="flex items-center justify-between mb-2">
+                    <span
+                      className="text-[11px] font-medium text-white/70"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      Marikiti Market
+                    </span>
+                    <span
+                      className="text-[11px] font-medium text-white/70"
+                      style={{ fontFamily: "var(--font-mono)" }}
+                    >
+                      #BKX-20483
+                    </span>
+                    <span
+                      className="text-[11px] font-medium text-white/70"
+                      style={{ fontFamily: "var(--font-display)" }}
+                    >
+                      Westlands
+                    </span>
+                  </div>
+                  <div className="h-1 bg-white/20 rounded-full overflow-hidden">
+                    <div className="h-full w-[68%] bg-[#b9ff66] rounded-full" />
+                  </div>
+                  <p
+                    className="text-[11px] text-white/50 mt-1.5"
+                    style={{ fontFamily: "var(--font-mono)" }}
+                  >
+                    11.2 km · 68% complete · ETA 14 min
+                  </p>
+                </div>
+              </div>
+
+              {/* Booking card — overlapping the bottom of the photo */}
+              <div className="relative -mt-6 mx-3 bg-white border border-[#efefef] rounded-lg overflow-hidden shadow-lg">
                 <div className="px-5 py-4 border-b border-[#efefef] flex items-center justify-between">
                   <h3
                     className="text-[16px] font-semibold text-[#111111]"
@@ -150,77 +207,6 @@ export default function HeroSection() {
                 </div>
                 <div className="p-5">
                   <BookingWidget />
-                </div>
-              </div>
-
-              {/* Overlay Card — Live Tracking (layered on top of booking card, offset down-left) */}
-              <div
-                className="relative -mt-4 mx-3 border border-[#efefef]/60 rounded-lg overflow-hidden p-5 shadow-md"
-                style={{
-                  background: "rgba(255,255,255,0.85)",
-                  backdropFilter: "blur(24px)",
-                  WebkitBackdropFilter: "blur(24px)",
-                }}
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-[#22c55e] animate-pulse" />
-                    <span
-                      className="text-[13px] font-semibold text-[#111111] tracking-widest uppercase"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      Live Tracking
-                    </span>
-                  </div>
-                  <span
-                    className="text-[11px] text-[#999999] font-medium"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    #BKX-20483
-                  </span>
-                </div>
-
-                {/* Coordinate display */}
-                <div className="bg-[#f8f8f8] border border-[#efefef] rounded-md px-4 py-3 mb-4">
-                  <p
-                    className="text-[12px] text-[#666666]"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    01.2921° S, 036.8219° E
-                  </p>
-                  <p
-                    className="text-[11px] text-[#999999] mt-0.5"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    ETA: 14 min · Westlands, Nairobi
-                  </p>
-                </div>
-
-                {/* Progress bar */}
-                <div className="space-y-1.5">
-                  <div className="flex justify-between">
-                    <span
-                      className="text-[11px] text-[#999999] font-medium"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      Marikiti Market
-                    </span>
-                    <span
-                      className="text-[11px] text-[#999999] font-medium"
-                      style={{ fontFamily: "var(--font-display)" }}
-                    >
-                      Westlands
-                    </span>
-                  </div>
-                  <div className="h-1.5 bg-[#efefef] rounded-full overflow-hidden">
-                    <div className="h-full w-[68%] bg-[#111111] rounded-full" />
-                  </div>
-                  <p
-                    className="text-[11px] text-[#999999]"
-                    style={{ fontFamily: "var(--font-mono)" }}
-                  >
-                    11.2 km · 68% complete
-                  </p>
                 </div>
               </div>
             </div>
