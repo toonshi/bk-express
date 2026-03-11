@@ -2,94 +2,107 @@ import { PLANS } from "@/data";
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="relative py-32 bg-dark text-white overflow-hidden">
-      {/* Technical Grid Background */}
+    <section id="pricing" className="relative py-28 bg-surface text-white overflow-hidden">
+      {/* Dot grid */}
       <div
         aria-hidden
-        className="absolute inset-0 technical-grid-dark opacity-10 pointer-events-none"
+        className="absolute inset-0 dot-grid opacity-50 pointer-events-none"
+      />
+      {/* Glow */}
+      <div
+        aria-hidden
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-primary/10 blur-[160px] pointer-events-none"
       />
 
       <div className="relative max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center gap-2 bg-white/5 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded mb-6 border border-white/10">
-            <span className="w-1.5 h-1.5 rounded-full bg-yellow" />
-            Pricing Infrastructure
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 rounded-full px-3.5 py-1.5 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-primary-light" />
+            <span className="text-xs text-primary-light font-medium tracking-wide">
+              Pricing
+            </span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-black text-white leading-[0.9] tracking-tighter uppercase font-display italic">
+          <h2 className="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight font-display">
             Transparent <br />
-            <span className="text-primary">Calculation.</span>
+            <span className="gradient-text">pricing.</span>
           </h2>
-          <p className="mt-8 text-white/40 max-w-lg mx-auto text-sm font-bold uppercase tracking-tight">
-            Our pricing engine computes real-time rates based on industrial route data and cargo specifications.
+          <p className="mt-5 text-white/40 max-w-lg mx-auto text-[15px] leading-relaxed">
+            Real-time rates based on route data and cargo specifications. No hidden charges.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {PLANS.map((plan) => (
             <div
               key={plan.name}
-              className={`relative p-12 border-r border-white/5 flex flex-col last:border-r-0 ${
-                plan.highlight
-                  ? "bg-white/5 backdrop-blur-sm"
-                  : "bg-transparent"
-              }`}
+              className={plan.highlight ? "gradient-border" : ""}
             >
-              {plan.highlight && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-yellow" />
-              )}
-
-              <div className="mb-10">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30 block mb-2">
-                  {plan.highlight ? "Optimized Choice" : "Standard Tier"}
-                </span>
-                <h3 className="text-3xl font-black text-white uppercase font-display italic">
-                  {plan.name}
-                </h3>
-                <p className="text-xs mt-3 text-white/40 font-bold uppercase tracking-wider">
-                  {plan.tagline}
-                </p>
-              </div>
-
-              <div className="mb-12">
-                {plan.base !== null ? (
-                  <div className="flex flex-col">
-                    <span className="text-4xl font-black text-primary font-display">
-                      KES {plan.base}
-                    </span>
-                    <span className="text-[11px] mt-2 text-white/30 font-bold uppercase tracking-widest">
-                      Base + KES {plan.perKm}/km
-                    </span>
-                  </div>
-                ) : (
-                  <span className="text-2xl font-black text-white uppercase font-display italic">
-                    Custom Quote
-                  </span>
-                )}
-              </div>
-
-              <ul className="space-y-4 flex-1 mb-12">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-4">
-                    <div className="w-4 h-4 rounded-sm bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? 'bg-yellow' : 'bg-primary'}`} />
-                    </div>
-                    <span className="text-[13px] font-bold text-white/60 uppercase tracking-tight">
-                      {f}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#booking"
-                className={`block text-center py-4 rounded font-black text-[11px] uppercase tracking-[0.2em] transition-all active:scale-[0.98] ${
+              <div
+                className={`relative h-full p-8 rounded-2xl flex flex-col ${
                   plan.highlight
-                    ? "bg-yellow text-dark hover:bg-primary"
-                    : "border border-white/10 text-white hover:bg-white/5"
+                    ? "bg-[#0f0f1a] border-0"
+                    : "bg-white/[0.03] border border-white/[0.07] rounded-2xl"
                 }`}
               >
-                {plan.base !== null ? "Initialize" : "Contact Operations"}
-              </a>
+                {plan.highlight && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                    <span className="inline-flex items-center gap-1.5 bg-primary px-3 py-1 rounded-full text-xs font-semibold text-white shadow-[0_0_16px_rgba(124,58,237,0.5)]">
+                      <span className="w-1 h-1 rounded-full bg-primary-light" />
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+
+                <div className="mb-7 pt-2">
+                  <h3 className="text-xl font-bold text-white font-display">{plan.name}</h3>
+                  <p className="text-sm mt-1 text-white/40">{plan.tagline}</p>
+                </div>
+
+                <div className="mb-8">
+                  {plan.base !== null ? (
+                    <div>
+                      <span className="text-4xl font-extrabold text-white font-display">
+                        KES {plan.base}
+                      </span>
+                      <span className="text-sm ml-2 text-white/30">
+                        + KES {plan.perKm}/km
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="text-2xl font-bold text-white font-display">
+                      Custom Quote
+                    </span>
+                  )}
+                </div>
+
+                <ul className="space-y-3 flex-1 mb-8">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-start gap-3">
+                      <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                        plan.highlight
+                          ? "bg-primary/20 border border-primary/30"
+                          : "bg-white/[0.05] border border-white/10"
+                      }`}>
+                        <div className={`w-1.5 h-1.5 rounded-full ${plan.highlight ? "bg-primary-light" : "bg-white/40"}`} />
+                      </div>
+                      <span className="text-sm text-white/60">
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#booking"
+                  className={`block text-center py-3.5 rounded-xl font-semibold text-sm transition-all active:scale-[0.98] ${
+                    plan.highlight
+                      ? "bg-primary text-white hover:bg-primary-light shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+                      : "border border-white/[0.08] text-white/60 hover:text-white hover:border-white/20"
+                  }`}
+                >
+                  {plan.base !== null ? "Get Started" : "Contact Us"}
+                </a>
+              </div>
             </div>
           ))}
         </div>
