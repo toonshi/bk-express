@@ -1,52 +1,18 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 
-const neueHaasDisplay = localFont({
-  src: [
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-55Roman-Trial.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-65Medium-Trial.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-75Bold-Trial.otf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-95Black-Trial.otf",
-      weight: "900",
-      style: "normal",
-    },
-  ],
-  variable: "--font-neue-haas-display",
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
-const neueHaasText = localFont({
-  src: [
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Text Family/NeueHaasGrotText-55Roman-Trial.otf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Text Family/NeueHaasGrotText-65Medium-Trial.otf",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Text Family/NeueHaasGrotText-75Bold-Trial.otf",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-neue-haas-text",
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -63,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${neueHaasDisplay.variable} ${neueHaasText.variable} antialiased`}>
+      <body className={`${inter.variable} ${plusJakarta.variable} antialiased`}>
         {children}
       </body>
     </html>

@@ -2,24 +2,24 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-  --primary: #C3EE8F;
-  --primary-dark: #A8D36A;
-  --yellow: #FFF200;
-  --dark: #0A0A0A;
-  --surface: #F5F5F5;
-  --border: #E5E5E5;
-  
-  --font-sans: var(--font-neue-haas-text), system-ui, sans-serif;
-  --font-display: var(--font-neue-haas-display), system-ui, sans-serif;
+  --foreground: #0a0a14;
+  --primary: #7c3aed;
+  --primary-light: #a78bfa;
+  --accent: #22d3ee;
+  --dark: #06060b;
+  --surface: #0f0f1a;
+  --border: #1e1e2e;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-plus-jakarta), system-ui, sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
-  --color-primary-dark: var(--primary-dark);
-  --color-yellow: var(--yellow);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
   --color-dark: var(--dark);
   --color-surface: var(--surface);
   --color-border: var(--border);
@@ -28,8 +28,8 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--dark);
+  color: #e2e8f0;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,17 +54,38 @@ html {
   animation: scroll-down 2s linear infinite;
 }
 
-/* Custom utilities for the technical look */
+/* Dot grid pattern — Metronome-style */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Legacy line grids kept for fallback */
 .technical-grid {
   background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .technical-grid-dark {
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+/* Gradient text — Metronome-style */
+.gradient-text {
+  background: linear-gradient(135deg, #c4b5fd 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient border wrapper */
+.gradient-border {
+  background: linear-gradient(135deg, rgba(124,58,237,0.3) 0%, rgba(34,211,238,0.2) 100%);
+  padding: 1px;
+  border-radius: 16px;
 }

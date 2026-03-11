@@ -92,16 +92,25 @@ export default function LocationInput({
 
   return (
     <div ref={containerRef} className="relative flex-1 min-w-0">
-      <div className="flex items-center gap-3 px-4 py-4 rounded-lg bg-white/5 border border-white/5 focus-within:border-primary/50 focus-within:bg-white/10 transition-all">
+      <div className="flex items-center gap-3 px-4 py-3.5 rounded-xl bg-white/[0.05] border border-white/[0.07] focus-within:border-primary/40 focus-within:bg-white/[0.08] transition-all">
         <div
-          className={`w-8 h-8 rounded flex items-center justify-center flex-shrink-0 ${
-            iconVariant === "green" ? "bg-primary" : iconVariant === "yellow" ? "bg-yellow" : "bg-white/10"
+          className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${
+            iconVariant === "green"
+              ? "bg-primary/20 border border-primary/30"
+              : iconVariant === "yellow"
+              ? "bg-accent/15 border border-accent/25"
+              : "bg-white/[0.06]"
           }`}
         >
           <MapPin
-            size={16}
-            weight="bold"
-            className={iconVariant === "dark" ? "text-primary" : "text-dark"}
+            size={13}
+            className={
+              iconVariant === "green"
+                ? "text-primary-light"
+                : iconVariant === "yellow"
+                ? "text-accent"
+                : "text-white/40"
+            }
           />
         </div>
         <input
@@ -119,7 +128,7 @@ export default function LocationInput({
           onChange={(e) => handleChange(e.target.value)}
           onKeyDown={handleKeyDown}
           autoComplete="off"
-          className="flex-1 bg-transparent text-sm text-white placeholder-white/30 outline-none font-bold tracking-tight min-w-0"
+          className="flex-1 bg-transparent text-sm text-white placeholder-white/30 outline-none font-medium min-w-0"
         />
       </div>
 
@@ -127,7 +136,7 @@ export default function LocationInput({
         <ul
           id={listId}
           role="listbox"
-          className="absolute z-50 top-full mt-2 left-0 right-0 bg-dark border border-white/10 rounded-lg shadow-2xl overflow-hidden backdrop-blur-xl"
+          className="absolute z-50 top-full mt-1.5 left-0 right-0 bg-[#0f0f1a] border border-white/[0.08] rounded-xl shadow-2xl overflow-hidden backdrop-blur-xl"
         >
           {suggestions.map((loc, i) => (
             <li
@@ -142,18 +151,15 @@ export default function LocationInput({
                   e.preventDefault();
                   handleSelect(loc);
                 }}
-                className={`w-full text-left px-5 py-3.5 text-[13px] font-bold flex items-center gap-3 transition-colors ${
+                className={`w-full text-left px-4 py-3 text-sm font-medium flex items-center gap-3 transition-colors ${
                   i === activeIndex
-                    ? "bg-primary text-dark"
-                    : "text-white/70 hover:bg-white/5"
+                    ? "bg-primary/20 text-primary-light"
+                    : "text-white/60 hover:bg-white/[0.05] hover:text-white/80"
                 }`}
               >
                 <MapPin
-                  size={14}
-                  weight="bold"
-                  className={
-                    i === activeIndex ? "text-dark" : "text-white/30"
-                  }
+                  size={13}
+                  className={i === activeIndex ? "text-primary-light" : "text-white/25"}
                 />
                 {loc}
               </button>

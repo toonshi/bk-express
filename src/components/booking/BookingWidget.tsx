@@ -51,9 +51,9 @@ export default function BookingWidget() {
     <>
       <div
         id="booking"
-        className="bg-dark/40 backdrop-blur-xl rounded-xl border border-white/10 p-1.5 w-full overflow-hidden"
+        className="bg-white/[0.04] backdrop-blur-xl rounded-2xl border border-white/[0.08] p-2 w-full overflow-hidden shadow-[0_0_40px_rgba(124,58,237,0.12)]"
       >
-        <div className="flex flex-col md:flex-row gap-1.5">
+        <div className="flex flex-col md:flex-row gap-2">
           <div className="flex-1">
             <LocationInput
               placeholder="Pickup location"
@@ -77,21 +77,21 @@ export default function BookingWidget() {
           <button
             onClick={handleSeePrice}
             disabled={loading}
-            className="flex items-center justify-center gap-2 px-8 py-4 bg-primary text-dark rounded-lg font-black text-[13px] uppercase tracking-widest hover:bg-yellow transition-all active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed whitespace-nowrap"
+            className="flex items-center justify-center gap-2 px-7 py-3.5 bg-primary text-white rounded-xl font-semibold text-sm hover:bg-primary-light transition-all active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap shadow-[0_0_20px_rgba(124,58,237,0.4)]"
           >
             {loading ? (
               <>
-                <SpinnerGap size={18} className="animate-spin" />
+                <SpinnerGap size={16} className="animate-spin" />
                 Processing
               </>
             ) : (
-              "Get Quote"
+              "Get Quote →"
             )}
           </button>
         </div>
 
         {error && (
-          <p className="mt-3 px-4 text-[10px] text-yellow font-black uppercase tracking-wider">{error}</p>
+          <p className="mt-2 px-4 text-xs text-red-400 font-medium">{error}</p>
         )}
       </div>
 
