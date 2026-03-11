@@ -43,17 +43,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-24">
         {/* Brand */}
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-3 mb-7">
-            <div className="w-9 h-9 bg-[#b9ff66] rounded-lg flex items-center justify-center">
+          <div className="flex items-center gap-3.5 mb-8">
+            <div className="w-11 h-11 bg-[#b9ff66] rounded-xl flex items-center justify-center">
               <span
-                className="text-[#111111] font-bold text-[12px]"
+                className="text-[#111111] font-bold text-[14px]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 BK
               </span>
             </div>
             <span
-              className="font-bold text-[18px] tracking-tight text-white"
+              className="font-bold text-[22px] tracking-tight text-white"
               style={{ fontFamily: "var(--font-display)" }}
             >
               BK EXPRESS

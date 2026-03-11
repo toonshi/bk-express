@@ -36,8 +36,8 @@ export default function Navbar() {
           <Image
             src="/logo.svg"
             alt="BK Express"
-            width={120}
-            height={32}
+            width={150}
+            height={40}
             priority
           />
         </a>
