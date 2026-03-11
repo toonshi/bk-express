@@ -1,35 +1,98 @@
 @import "tailwindcss";
 
+/* ─── Neue Haas Grotesque Display ─────────────────────────────────────────── */
+@font-face {
+  font-family: "NHG Display";
+  src: url("/fonts/NHGDisp-Roman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NHG Display";
+  src: url("/fonts/NHGDisp-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NHG Display";
+  src: url("/fonts/NHGDisp-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NHG Display";
+  src: url("/fonts/NHGDisp-Black.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Neue Haas Grotesque Text ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "NHG Text";
+  src: url("/fonts/NHGText-Roman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NHG Text";
+  src: url("/fonts/NHGText-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "NHG Text";
+  src: url("/fonts/NHGText-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Design tokens ─────────────────────────────────────────────────────────── */
 :root {
   --background: #ffffff;
-  --foreground: #0a0a14;
-  --primary: #7c3aed;
-  --primary-light: #a78bfa;
-  --accent: #22d3ee;
-  --dark: #06060b;
-  --surface: #0f0f1a;
-  --border: #1e1e2e;
+  --foreground: #111111;
+  --muted:      #666666;
+  --border:     #efefef;
+  --surface:    #f8f8f8;
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-display: var(--font-plus-jakarta), system-ui, sans-serif;
+  /* Brand */
+  --lime:       #b9ff66;
+  --primrose:   #f4ffb0;
+  --dark:       #111111;
+
+  --font-sans:    "NHG Text",    system-ui, sans-serif;
+  --font-display: "NHG Display", system-ui, sans-serif;
+  --font-mono:    ui-monospace, "SF Mono", "Roboto Mono", monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-primary: var(--primary);
-  --color-primary-light: var(--primary-light);
-  --color-accent: var(--accent);
-  --color-dark: var(--dark);
-  --color-surface: var(--surface);
-  --color-border: var(--border);
-  --font-sans: var(--font-sans);
-  --font-display: var(--font-display);
+  --color-muted:      var(--muted);
+  --color-border:     var(--border);
+  --color-surface:    var(--surface);
+  --color-lime:       var(--lime);
+  --color-primrose:   var(--primrose);
+  --color-dark:       var(--dark);
+  --font-sans:        var(--font-sans);
+  --font-display:     var(--font-display);
+  --font-mono:        var(--font-mono);
+}
+
+/* ─── Base ──────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--dark);
-  color: #e2e8f0;
+  background: #ffffff;
+  color: #111111;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -37,55 +100,24 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ─── Utilities ─────────────────────────────────────────────────────────────── */
+
+/* 40px square grid — Industrial Minimalist (light) */
+.square-grid {
+  background-image:
+    linear-gradient(to right,  #efefef 1px, transparent 1px),
+    linear-gradient(to bottom, #efefef 1px, transparent 1px);
+  background-size: 40px 40px;
 }
 
+/* Scroll animation for navbar indicator */
 @keyframes scroll-down {
-  0% { transform: translateY(-100%); }
+  0%   { transform: translateY(-100%); }
   100% { transform: translateY(100%); }
 }
 
 .animate-scroll-down {
   animation: scroll-down 2s linear infinite;
-}
-
-/* Dot grid pattern — Metronome-style */
-.dot-grid {
-  background-image: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
-
-/* Legacy line grids kept for fallback */
-.technical-grid {
-  background-image: 
-    linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.technical-grid-dark {
-  background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-}
-
-/* Gradient text — Metronome-style */
-.gradient-text {
-  background: linear-gradient(135deg, #c4b5fd 0%, #22d3ee 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Gradient border wrapper */
-.gradient-border {
-  background: linear-gradient(135deg, rgba(124,58,237,0.3) 0%, rgba(34,211,238,0.2) 100%);
-  padding: 1px;
-  border-radius: 16px;
 }

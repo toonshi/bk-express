@@ -10,9 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -28,22 +26,19 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-[#06060b]/80 backdrop-blur-xl border-b border-white/[0.06] py-3"
-          : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${
+        scrolled ? "border-b border-[#efefef] shadow-[0_1px_0_#efefef]" : "border-b border-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a href="/" className="flex items-center">
           <Image
             src="/logo.svg"
             alt="BK Express"
-            width={130}
-            height={36}
+            width={120}
+            height={32}
             priority
-            className="brightness-0 invert opacity-90"
           />
         </a>
 
@@ -53,7 +48,8 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-white/50 hover:text-white transition-colors duration-200"
+              className="text-[14px] font-medium text-[#111111]/60 hover:text-[#111111] tracking-wide uppercase transition-colors duration-200"
+              style={{ fontFamily: "var(--font-display)" }}
             >
               {link.label}
             </a>
@@ -61,24 +57,26 @@ export default function Navbar() {
         </nav>
 
         {/* CTA buttons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           <a
             href="mailto:hello@bkexpress.co.ke"
-            className="text-sm font-medium text-white/40 hover:text-white transition-colors duration-200"
+            className="text-[14px] font-medium text-[#111111]/50 hover:text-[#111111] transition-colors duration-200"
+            style={{ fontFamily: "var(--font-display)" }}
           >
             Support
           </a>
           <a
             href="tel:+254700000000"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-lg font-semibold text-sm bg-primary text-white hover:bg-primary-light hover:text-dark transition-all duration-200 active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.4)]"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-[14px] bg-[#b9ff66] text-[#111111] hover:bg-[#a8f050] transition-colors duration-200"
+            style={{ fontFamily: "var(--font-display)" }}
           >
-            Call Dispatch
+            Talk to Dispatch
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded-lg text-white/60 hover:text-white hover:bg-white/[0.06] transition-colors"
+          className="md:hidden p-2 rounded-lg text-[#111111]/60 hover:text-[#111111] hover:bg-[#efefef] transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
@@ -88,29 +86,32 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden fixed inset-0 top-[60px] bg-[#06060b]/95 backdrop-blur-xl z-50 border-t border-white/[0.06]">
+        <div className="md:hidden fixed inset-0 top-16 bg-white z-50 border-t border-[#efefef]">
           <div className="px-6 py-10 flex flex-col gap-6">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-2xl font-bold text-white/70 hover:text-white transition-colors"
+                className="text-2xl font-bold text-[#111111]/70 hover:text-[#111111] transition-colors tracking-tight"
+                style={{ fontFamily: "var(--font-display)" }}
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-8 flex flex-col gap-3 border-t border-white/[0.06]">
+            <div className="pt-8 flex flex-col gap-3 border-t border-[#efefef]">
               <a
                 href="tel:+254700000000"
-                className="inline-flex justify-center px-8 py-3.5 bg-primary text-white rounded-lg font-semibold text-sm shadow-[0_0_20px_rgba(124,58,237,0.3)]"
+                className="inline-flex justify-center px-8 py-3.5 bg-[#b9ff66] text-[#111111] rounded-lg font-semibold text-sm"
+                style={{ fontFamily: "var(--font-display)" }}
                 onClick={() => setMobileOpen(false)}
               >
-                Call Dispatch
+                Talk to Dispatch
               </a>
               <a
                 href="mailto:hello@bkexpress.co.ke"
-                className="inline-flex justify-center px-8 py-3.5 border border-white/[0.08] text-white/60 rounded-lg font-medium text-sm hover:text-white hover:border-white/20 transition-all"
+                className="inline-flex justify-center px-8 py-3.5 border border-[#efefef] text-[#111111]/60 rounded-lg font-medium text-sm hover:text-[#111111] hover:border-[#111111]/20 transition-all"
+                style={{ fontFamily: "var(--font-display)" }}
                 onClick={() => setMobileOpen(false)}
               >
                 Email Support
