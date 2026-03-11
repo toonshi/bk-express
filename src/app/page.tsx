@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
+import FleetSection from "@/components/sections/FleetSection";
 import HowItWorksSection from "@/components/sections/HowItWorksSection";
 import CitiesSection from "@/components/sections/CitiesSection";
 import PricingSection from "@/components/sections/PricingSection";
@@ -46,6 +47,7 @@ export default function Home() {
       </section>
 
       <ServicesSection />
+      <FleetSection />
       <HowItWorksSection />
       <CitiesSection />
       <PricingSection />
