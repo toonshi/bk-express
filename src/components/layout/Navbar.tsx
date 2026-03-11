@@ -7,6 +7,15 @@ import { NAV_LINKS } from "@/data";
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     if (!mobileOpen) return;
@@ -18,20 +27,20 @@ export default function Navbar() {
   }, [mobileOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-dark/80 backdrop-blur-md border-b border-white/5 py-3" : "bg-transparent py-5"}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="/" className="flex items-center mr-auto">
-          <Image src="/logo.svg" alt="BK Express" width={160} height={50} priority />
+        <a href="/" className="flex items-center">
+          <Image src="/logo.svg" alt="BK Express" width={140} height={40} priority className="brightness-0 invert" />
         </a>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-10 mr-10">
+        <nav className="hidden md:flex items-center gap-10">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-base font-medium text-slate-600 hover:text-slate-900 transition-colors font-heading uppercase tracking-wide"
+              className="text-[11px] font-black uppercase tracking-widest text-white/60 hover:text-primary transition-colors"
             >
               {link.label}
             </a>
@@ -39,59 +48,59 @@ export default function Navbar() {
         </nav>
 
         {/* CTA buttons */}
-        <div className="hidden md:flex items-center gap-3">
+        <div className="hidden md:flex items-center gap-6">
           <a
             href="mailto:hello@bkexpress.co.ke"
-            className="text-base font-medium text-slate-600 hover:text-slate-900 transition-colors font-heading uppercase tracking-wide"
+            className="text-[11px] font-black uppercase tracking-widest text-white/40 hover:text-white transition-colors"
           >
-            Email Us
+            Support
           </a>
           <a
             href="tel:+254700000000"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-medium text-base border-2 border-black text-black hover:bg-slate-50 transition-colors font-heading uppercase tracking-wide"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg font-black text-[11px] uppercase tracking-widest bg-primary text-dark hover:bg-yellow transition-all active:scale-95"
           >
-            Call Us
+            Call Dispatch
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 rounded-md text-slate-600 hover:bg-slate-100 transition-colors"
+          className="md:hidden p-2 rounded-md text-white hover:bg-white/10 transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
-          {mobileOpen ? <X size={22} /> : <List size={22} />}
+          {mobileOpen ? <X size={24} weight="bold" /> : <List size={24} weight="bold" />}
         </button>
       </div>
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-slate-100 bg-white">
-          <div className="px-6 py-4 flex flex-col gap-3">
+        <div className="md:hidden fixed inset-0 top-[72px] bg-dark z-50 animate-in fade-in slide-in-from-top-4 duration-300">
+          <div className="px-6 py-10 flex flex-col gap-8">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-base font-medium text-slate-600 hover:text-slate-900 py-1 transition-colors font-heading uppercase tracking-wide"
+                className="text-2xl font-black uppercase tracking-tighter text-white hover:text-primary transition-colors"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <div className="pt-2 flex flex-col gap-2 border-t border-slate-100">
-              <a
-                href="mailto:hello@bkexpress.co.ke"
-                className="inline-flex justify-center px-5 py-2.5 text-slate-700 border border-slate-200 rounded-lg font-medium text-base hover:bg-slate-50 transition-colors font-heading uppercase tracking-wide"
-                onClick={() => setMobileOpen(false)}
-              >
-                Email Us
-              </a>
+            <div className="pt-10 flex flex-col gap-4 border-t border-white/5">
               <a
                 href="tel:+254700000000"
-                className="inline-flex justify-center px-5 py-2.5 border-2 border-black text-black rounded-lg font-medium text-base hover:bg-slate-50 transition-colors font-heading uppercase tracking-wide"
+                className="inline-flex justify-center px-8 py-4 bg-primary text-dark rounded-lg font-black text-sm uppercase tracking-widest"
                 onClick={() => setMobileOpen(false)}
               >
-                Call Us
+                Call Dispatch
+              </a>
+              <a
+                href="mailto:hello@bkexpress.co.ke"
+                className="inline-flex justify-center px-8 py-4 border border-white/10 text-white rounded-lg font-black text-sm uppercase tracking-widest"
+                onClick={() => setMobileOpen(false)}
+              >
+                Email Support
               </a>
             </div>
           </div>

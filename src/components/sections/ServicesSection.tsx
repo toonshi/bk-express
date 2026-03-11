@@ -2,39 +2,58 @@ import { SERVICES } from "@/data";
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
-          <div>
-            <span className="inline-block bg-green-50 text-green-700 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4 border border-green-100">
-              What we do
-            </span>
-            <h2 className="text-4xl font-bold text-slate-900">
-              What we move
+    <section id="services" className="relative py-32 bg-white overflow-hidden">
+      {/* Technical Grid Background */}
+      <div
+        aria-hidden
+        className="absolute inset-0 technical-grid opacity-50 pointer-events-none"
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-20 pb-10 border-b border-dark/5">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-dark text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded mb-6">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+              Service Capabilities
+            </div>
+            <h2 className="text-5xl md:text-6xl font-black text-dark leading-[0.9] tracking-tighter uppercase font-display">
+              Infrastructure for <br />
+              <span className="text-primary-dark">any cargo.</span>
             </h2>
           </div>
-          <p className="text-slate-500 max-w-sm text-sm leading-relaxed">
-            From a bag of cabbages to a full truckload of furniture — if it
-            needs to move, BK Express gets it there.
+          <p className="text-dark/40 max-w-sm text-[15px] leading-relaxed font-bold uppercase tracking-tight">
+            From industrial produce to household goods, we provide the backbone for Kenya's logistics needs.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0 border-t border-l border-dark/5">
           {SERVICES.map((service) => {
             const Icon = service.icon;
             return (
               <div
                 key={service.title}
-                className="group relative p-6 rounded-xl border border-slate-200 bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer"
+                className="group relative p-10 bg-white border-r border-b border-dark/5 hover:bg-dark hover:text-white transition-all duration-300 overflow-hidden"
               >
-                <div className="w-11 h-11 rounded-xl bg-green-50 group-hover:bg-green-600 flex items-center justify-center mb-5 transition-colors">
-                  <Icon size={20} className="text-green-600 group-hover:text-white transition-colors" />
+                {/* Hover Reveal Grid */}
+                <div className="absolute inset-0 technical-grid-dark opacity-0 group-hover:opacity-10 transition-opacity" />
+                
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded bg-primary flex items-center justify-center mb-8 shadow-[0_0_15px_rgba(195,238,143,0.3)] transition-transform group-hover:scale-110">
+                    <Icon size={24} weight="bold" className="text-dark" />
+                  </div>
+                  <span className="text-[10px] font-black uppercase tracking-widest text-primary-dark group-hover:text-primary transition-colors">
+                    {service.tag}
+                  </span>
+                  <h3 className="mt-4 text-2xl font-black text-dark group-hover:text-white leading-tight font-display uppercase italic">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm text-dark/40 group-hover:text-white/40 leading-relaxed font-sans">
+                    {service.description}
+                  </p>
                 </div>
-                <span className="text-xs font-bold uppercase tracking-widest text-green-600">
-                  {service.tag}
-                </span>
-                <h3 className="mt-2 text-xl font-semibold text-slate-900">{service.title}</h3>
-                <p className="mt-2 text-sm text-slate-500 leading-relaxed">{service.description}</p>
+
+                {/* Corner Decoration */}
+                <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-dark/10 group-hover:border-primary/30 transition-colors" />
               </div>
             );
           })}

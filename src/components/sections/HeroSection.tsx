@@ -1,179 +1,94 @@
 import BookingWidget from "@/components/booking/BookingWidget";
-import { Phone, Envelope, MapPin, ArrowDown } from "@phosphor-icons/react/ssr";
+import { Phone, Envelope, ArrowDown } from "@phosphor-icons/react/ssr";
 import { STATS } from "@/data";
 
 export default function HeroSection() {
   return (
-    <section className="relative bg-white overflow-hidden">
-      {/* Subtle background gradient */}
+    <section className="relative bg-dark text-white overflow-hidden min-h-[90vh] flex flex-col justify-center">
+      {/* Technical Grid Background */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-br from-green-50/60 via-white to-white pointer-events-none"
+        className="absolute inset-0 technical-grid-dark opacity-20 pointer-events-none"
       />
-      {/* Decorative green blob — top right */}
+      
+      {/* Glow Effect */}
       <div
         aria-hidden
-        className="absolute -top-32 -right-32 w-[560px] h-[560px] bg-green-100 rounded-full opacity-50 blur-3xl pointer-events-none"
-      />
-      {/* Decorative green blob — bottom left */}
-      <div
-        aria-hidden
-        className="absolute bottom-0 -left-20 w-[300px] h-[300px] bg-emerald-50 rounded-full opacity-70 blur-2xl pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"
       />
 
-      <div className="relative max-w-7xl mx-auto px-6 pt-14 pb-20">
-        <div className="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center">
+      <div className="relative max-w-5xl mx-auto px-6 pt-24 pb-20 text-center">
+        {/* Service badge */}
+        <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-4 py-1.5 mb-10 backdrop-blur-sm">
+          <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(195,238,143,0.8)]" />
+          <span className="text-[11px] text-white/80 font-bold uppercase tracking-widest">
+            Across Kenya · Real-time Pricing
+          </span>
+        </div>
 
-          {/* ── Left column ───────────────────────────────────────── */}
-          <div>
-            {/* Service badge */}
-            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 rounded-full px-4 py-1.5 mb-7">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              <span className="text-sm text-green-700 font-medium">
-                Nairobi · Mombasa · Kisumu · Upcountry
-              </span>
-            </div>
+        {/* Headline */}
+        <h1 className="text-6xl sm:text-7xl md:text-8xl font-black text-white leading-[0.95] tracking-tighter mb-8 font-display">
+          LOGISTICS FOR THE <br />
+          <span className="text-primary italic">MODERN WORLD.</span>
+        </h1>
 
-            {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 leading-[1.1] max-w-xl">
-              Trucks that{" "}
-              <span className="text-green-600">move Kenya</span>{" "}
-              forward.
-            </h1>
+        <p className="mt-8 text-xl text-white/60 max-w-2xl mx-auto leading-relaxed font-sans">
+          BK Express provides industrial-grade delivery infrastructure for{" "}
+          <span className="text-white font-medium">market produce</span>,{" "}
+          <span className="text-white font-medium">household goods</span>, and{" "}
+          <span className="text-white font-medium">parcels</span>.
+        </p>
 
-            <p className="mt-5 text-lg text-slate-500 max-w-lg leading-relaxed">
-              BK Express moves{" "}
-              <strong className="text-slate-700 font-semibold">market produce</strong>,{" "}
-              <strong className="text-slate-700 font-semibold">household goods</strong>, and{" "}
-              <strong className="text-slate-700 font-semibold">overnight parcels</strong>{" "}
-              across Kenya. Get an instant price — no sign-up needed.
-            </p>
+        {/* Booking widget container - Centered */}
+        <div className="mt-12 max-w-4xl mx-auto bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md shadow-2xl">
+          <BookingWidget />
+        </div>
 
-            {/* Booking widget */}
-            <div className="mt-8">
-              <BookingWidget />
-            </div>
-
-            {/* Contact shortcuts */}
-            <div className="mt-6 flex flex-wrap items-center gap-5">
-              <a
-                href="tel:+254700000000"
-                className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-green-600 transition-colors"
-              >
-                <Phone size={15} weight="bold" />
-                +254 700 000 000
-              </a>
-              <a
-                href="mailto:hello@bkexpress.co.ke"
-                className="flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-green-600 transition-colors"
-              >
-                <Envelope size={15} weight="bold" />
-                hello@bkexpress.co.ke
-              </a>
-            </div>
-
-            {/* Mobile-only stats */}
-            <div className="mt-8 flex flex-wrap gap-6 lg:hidden">
-              {STATS.map((stat) => (
-                <div key={stat.label}>
-                  <p className="text-2xl font-bold text-green-600">{stat.value}</p>
-                  <p className="text-xs text-slate-500 mt-0.5">{stat.label}</p>
-                </div>
-              ))}
-            </div>
+        {/* Contact & Stats Bar */}
+        <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-10 pt-10 border-t border-white/5">
+          {/* Contact shortcuts */}
+          <div className="flex flex-wrap items-center justify-center gap-8">
+            <a
+              href="tel:+254700000000"
+              className="flex items-center gap-2 text-sm font-bold text-white/40 hover:text-primary transition-colors uppercase tracking-wider"
+            >
+              <Phone size={16} weight="bold" />
+              +254 700 000 000
+            </a>
+            <a
+              href="mailto:hello@bkexpress.co.ke"
+              className="flex items-center gap-2 text-sm font-bold text-white/40 hover:text-primary transition-colors uppercase tracking-wider"
+            >
+              <Envelope size={16} weight="bold" />
+              hello@bkexpress.co.ke
+            </a>
           </div>
 
-          {/* ── Right column (desktop) ─────────────────────────────── */}
-          <div className="hidden lg:flex flex-col gap-4">
-
-            {/* Example route card */}
-            <div className="bg-slate-900 rounded-2xl p-6 shadow-xl">
-              <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest mb-5">
-                Live route example
-              </p>
-
-              {/* Route stops */}
-              <div className="space-y-0">
-                <div className="flex items-start gap-3">
-                  <div className="flex flex-col items-center">
-                    <div className="w-9 h-9 rounded-full bg-green-500/20 flex items-center justify-center">
-                      <MapPin size={16} className="text-green-400" weight="fill" />
-                    </div>
-                    <div className="w-px h-8 bg-slate-700 mt-1 border-l border-dashed border-slate-600" />
-                  </div>
-                  <div className="pt-1.5">
-                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
-                      Pickup
-                    </p>
-                    <p className="text-base font-semibold text-white leading-snug">
-                      Marikiti Market, Nairobi
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 rounded-full bg-slate-700 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={16} className="text-green-400" weight="fill" />
-                  </div>
-                  <div className="pt-1.5">
-                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wide">
-                      Drop-off
-                    </p>
-                    <p className="text-base font-semibold text-white leading-snug">
-                      Mombasa CBD
-                    </p>
-                  </div>
-                </div>
+          {/* Stats */}
+          <div className="flex items-center gap-12">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="text-center md:text-left">
+                <p className="text-3xl font-black text-primary font-display">{stat.value}</p>
+                <p className="text-[10px] text-white/40 font-bold uppercase tracking-widest mt-1">{stat.label}</p>
               </div>
-
-              {/* Route meta */}
-              <div className="mt-5 pt-4 border-t border-slate-700/60 grid grid-cols-3 gap-3">
-                <div>
-                  <p className="text-[11px] text-slate-500">Distance</p>
-                  <p className="text-sm font-bold text-green-400 mt-0.5">480 km</p>
-                </div>
-                <div>
-                  <p className="text-[11px] text-slate-500">Est. time</p>
-                  <p className="text-sm font-bold text-green-400 mt-0.5">~8 hrs</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-[11px] text-slate-500">Price</p>
-                  <p className="text-lg font-extrabold text-white mt-0.5">
-                    KES 12,550
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Stats cards */}
-            <div className="grid grid-cols-3 gap-3">
-              {STATS.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="bg-green-50 border border-green-100 rounded-xl p-4 text-center"
-                >
-                  <p className="text-2xl font-extrabold text-green-700">{stat.value}</p>
-                  <p className="text-[11px] text-slate-500 mt-1 leading-tight">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Scroll hint */}
-            <div className="flex justify-center mt-1">
-              <a
-                href="#services"
-                aria-label="Scroll to services"
-                className="flex items-center gap-1.5 text-xs text-slate-400 hover:text-green-600 transition-colors"
-              >
-                <ArrowDown size={13} />
-                See what we move
-              </a>
-            </div>
+            ))}
           </div>
+        </div>
 
+        {/* Scroll hint */}
+        <div className="flex justify-center mt-16">
+          <a
+            href="#services"
+            aria-label="Scroll to services"
+            className="group flex flex-col items-center gap-3 text-[10px] font-bold text-white/30 hover:text-primary transition-colors uppercase tracking-widest"
+          >
+            Explore Services
+            <div className="w-px h-12 bg-white/10 group-hover:bg-primary/50 transition-colors relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1/2 bg-primary animate-scroll-down" />
+            </div>
+          </a>
         </div>
       </div>
     </section>
   );
 }
-

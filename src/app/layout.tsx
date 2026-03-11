@@ -1,5 +1,53 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const neueHaasDisplay = localFont({
+  src: [
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-55Roman-Trial.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-65Medium-Trial.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-75Bold-Trial.otf",
+      weight: "700",
+      style: "normal",
+    },
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Display Family/NeueHaasGrotDisp-95Black-Trial.otf",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  variable: "--font-neue-haas-display",
+});
+
+const neueHaasText = localFont({
+  src: [
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Text Family/NeueHaasGrotText-55Roman-Trial.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Text Family/NeueHaasGrotText-65Medium-Trial.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../Neue_Haas_Grotesk_Collection/Neue Haas Grotesk Text Family/NeueHaasGrotText-75Bold-Trial.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-neue-haas-text",
+});
 
 export const metadata: Metadata = {
   title: "BK Express – Fast, Reliable Delivery",
@@ -15,19 +63,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Geist:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="antialiased">{children}</body>
+      <body className={`${neueHaasDisplay.variable} ${neueHaasText.variable} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }

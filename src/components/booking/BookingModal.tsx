@@ -120,85 +120,83 @@ export default function BookingModal({
   return (
     <Dialog.Root open={open} onOpenChange={(v) => !v && handleClose()}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white rounded-2xl shadow-2xl border border-slate-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
+        <Dialog.Overlay className="fixed inset-0 bg-dark/60 backdrop-blur-md z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg max-h-[90vh] overflow-y-auto bg-dark border border-white/10 rounded-xl shadow-2xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
           {/* Header */}
-          <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-slate-100">
+          <div className="flex items-center justify-between px-8 pt-8 pb-6 border-b border-white/5">
             <div>
-              <Dialog.Title className="text-xl font-bold text-slate-900">
-                Complete Your Booking
+              <Dialog.Title className="text-2xl font-black text-white uppercase font-display italic tracking-tight">
+                Finalize <span className="text-primary">Dispatch</span>
               </Dialog.Title>
-              <Dialog.Description className="text-sm text-slate-500 mt-0.5">
-                Confirm your pickup details below
+              <Dialog.Description className="text-[10px] text-white/40 mt-1 font-black uppercase tracking-widest">
+                System identification & logistics scheduling
               </Dialog.Description>
             </div>
             <button
               onClick={handleClose}
-              className="p-2 rounded-full hover:bg-slate-100 transition-colors text-slate-400 hover:text-slate-600"
+              className="p-2 rounded-lg hover:bg-white/5 transition-colors text-white/40 hover:text-white"
               aria-label="Close"
             >
-              <X size={18} />
+              <X size={20} weight="bold" />
             </button>
           </div>
 
           {submitted ? (
-            <div className="px-6 py-10 flex flex-col items-center text-center gap-4">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center">
-                <CheckCircle size={32} className="text-green-600" />
+            <div className="px-8 py-16 flex flex-col items-center text-center gap-6">
+              <div className="w-20 h-20 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(195,238,143,0.1)]">
+                <CheckCircle size={40} className="text-primary" weight="bold" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900">Booking Confirmed!</h3>
+              <div>
+                <h3 className="text-3xl font-black text-white uppercase font-display italic">Sequence Confirmed</h3>
+                <p className="text-[10px] text-white/40 font-black uppercase tracking-[0.2em] mt-2">Operational Reference Generated</p>
+              </div>
               {bookingRef && (
-                <div className="bg-slate-900 text-green-400 rounded-xl px-6 py-3 font-mono font-bold text-lg tracking-widest">
+                <div className="bg-white/5 border border-white/10 text-primary rounded-lg px-8 py-4 font-mono font-black text-xl tracking-[0.3em] shadow-inner">
                   {bookingRef}
                 </div>
               )}
-              <p className="text-slate-500 max-w-xs text-sm">
-                A confirmation has been sent to{" "}
-                <strong className="text-slate-700">{form.email}</strong>. Our team will be
-                ready on {pickupDateTime && format(pickupDateTime, "PPP 'at' p")}.
+              <p className="text-white/60 max-w-xs text-sm font-bold uppercase tracking-tight leading-relaxed">
+                Logistics data dispatched to <span className="text-white">{form.email}</span>. 
+                Unit deployment scheduled for {pickupDateTime && format(pickupDateTime, "MMM d 'at' p")}.
               </p>
               <button
                 onClick={handleClose}
-                className="mt-4 px-8 py-3 bg-slate-900 text-white rounded-xl font-semibold hover:bg-slate-800 transition-colors"
+                className="mt-4 px-12 py-4 bg-primary text-dark rounded font-black text-[11px] uppercase tracking-widest hover:bg-yellow transition-all"
               >
-                Done
+                Return to Terminal
               </button>
             </div>
           ) : (
-            <div className="px-6 py-5 space-y-6">
+            <div className="px-8 py-8 space-y-8">
               {/* Route summary */}
-              <div className="bg-slate-50 rounded-xl p-4 space-y-3 border border-slate-100">
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 w-5 h-5 rounded-full bg-green-600 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={11} className="text-white" />
-                  </div>
+              <div className="bg-white/5 border border-white/5 rounded-lg p-6 space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(195,238,143,0.8)]" />
                   <div>
-                    <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Pickup</p>
-                    <p className="text-sm font-semibold text-slate-900">{pickup}</p>
+                    <p className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-1">Origin</p>
+                    <p className="text-sm font-bold text-white uppercase tracking-tight leading-tight">{pickup}</p>
                   </div>
                 </div>
-                <div className="ml-2.5 w-px h-3 bg-slate-200" />
-                <div className="flex items-start gap-3">
-                  <div className="mt-0.5 w-5 h-5 rounded-full bg-slate-900 flex items-center justify-center flex-shrink-0">
-                    <MapPin size={11} className="text-green-400" />
-                  </div>
+                <div className="ml-[3px] w-px h-6 bg-white/10" />
+                <div className="flex items-start gap-4">
+                  <div className="mt-1 w-2 h-2 rounded-full bg-yellow shadow-[0_0_8px_rgba(255,242,0,0.8)]" />
                   <div>
-                    <p className="text-xs text-slate-400 font-medium uppercase tracking-wide">Drop-off</p>
-                    <p className="text-sm font-semibold text-slate-900">{dropoff}</p>
+                    <p className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-1">Destination</p>
+                    <p className="text-sm font-bold text-white uppercase tracking-tight leading-tight">{dropoff}</p>
                   </div>
                 </div>
-                <div className="pt-2 flex gap-4 border-t border-slate-200">
+                <div className="pt-4 flex gap-8 border-t border-white/5">
                   <div>
-                    <p className="text-xs text-slate-400">Distance</p>
-                    <p className="text-sm font-bold text-slate-900">{distanceKm.toFixed(1)} km</p>
+                    <p className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-1">Range</p>
+                    <p className="text-sm font-black text-white">{distanceKm.toFixed(1)} KM</p>
                   </div>
                   <div>
-                    <p className="text-xs text-slate-400">Est. duration</p>
-                    <p className="text-sm font-bold text-slate-900">{durationMinutes} min</p>
+                    <p className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-1">Window</p>
+                    <p className="text-sm font-black text-white">{durationMinutes} MIN</p>
                   </div>
                   <div className="ml-auto text-right">
-                    <p className="text-xs text-slate-400">Total price</p>
-                    <p className="text-lg font-bold text-green-600">
+                    <p className="text-[10px] text-white/30 font-black uppercase tracking-widest mb-1">Rate</p>
+                    <p className="text-xl font-black text-primary font-display uppercase tracking-tight">
                       {PRICING.currency} {price.toFixed(0)}
                     </p>
                   </div>
@@ -207,11 +205,11 @@ export default function BookingModal({
 
               {/* Date picker */}
               <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-3">
-                  <CalendarBlank size={16} className="text-green-600" />
-                  Pickup Date
+                <label className="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">
+                  <CalendarBlank size={16} weight="bold" className="text-primary" />
+                  Select Deployment Date
                 </label>
-                <div className="border border-slate-200 rounded-xl p-4">
+                <div className="border border-white/10 rounded-lg p-6 bg-white/5">
                   <DayPicker
                     mode="single"
                     selected={selectedDate}
@@ -222,30 +220,30 @@ export default function BookingModal({
                       months: "w-full",
                       month: "w-full",
                       month_caption:
-                        "flex items-center justify-between mb-3 px-1",
+                        "flex items-center justify-between mb-6 px-1",
                       caption_label:
-                        "text-sm font-semibold text-slate-900 select-none",
-                      nav: "flex items-center gap-1",
+                        "text-xs font-black text-white uppercase tracking-[0.2em] select-none",
+                      nav: "flex items-center gap-2",
                       button_previous:
-                        "w-7 h-7 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-500 transition-colors",
+                        "w-8 h-8 flex items-center justify-center rounded bg-white/5 hover:bg-white/10 text-white transition-colors",
                       button_next:
-                        "w-7 h-7 flex items-center justify-center rounded-lg hover:bg-slate-100 text-slate-500 transition-colors",
+                        "w-8 h-8 flex items-center justify-center rounded bg-white/5 hover:bg-white/10 text-white transition-colors",
                       month_grid: "w-full border-collapse",
-                      weekdays: "flex w-full mb-1",
+                      weekdays: "flex w-full mb-2",
                       weekday:
-                        "flex-1 text-center text-[11px] font-semibold text-slate-400 uppercase tracking-wider py-1 select-none",
+                        "flex-1 text-center text-[9px] font-black text-white/20 uppercase tracking-widest py-2 select-none",
                       weeks: "w-full",
                       week: "flex w-full mt-1",
                       day: "flex-1 flex items-center justify-center p-0",
                       day_button:
-                        "w-9 h-9 mx-auto text-sm rounded-lg transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-green-500 hover:bg-slate-100 text-slate-700 font-medium cursor-pointer",
+                        "w-10 h-10 mx-auto text-[11px] rounded transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary hover:bg-white/10 text-white/60 font-bold cursor-pointer",
                       selected:
-                        "!bg-green-600 !text-white rounded-lg hover:!bg-green-700 font-bold",
-                      today: "text-green-600 font-bold",
+                        "!bg-primary !text-dark rounded hover:!bg-yellow font-black",
+                      today: "text-primary border border-primary/20 font-black",
                       outside:
-                        "text-slate-300 hover:bg-transparent cursor-default",
+                        "text-white/10 hover:bg-transparent cursor-default",
                       disabled:
-                        "text-slate-300 cursor-not-allowed hover:!bg-transparent",
+                        "text-white/5 cursor-not-allowed hover:!bg-transparent",
                     }}
                   />
                 </div>
@@ -253,19 +251,19 @@ export default function BookingModal({
 
               {/* Time picker */}
               <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-3">
-                  <Clock size={16} className="text-green-600" />
-                  Pickup Time
+                <label className="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">
+                  <Clock size={16} weight="bold" className="text-primary" />
+                  Select Dispatch Time
                 </label>
                 <div className="grid grid-cols-4 gap-2">
                   {TIME_SLOTS.map((slot) => (
                     <button
                       key={slot}
                       onClick={() => setSelectedTime(slot)}
-                      className={`py-2 px-2 rounded-lg text-sm font-medium border transition-all ${
+                      className={`py-3 px-2 rounded font-black text-[11px] uppercase tracking-wider border transition-all ${
                         selectedTime === slot
-                          ? "bg-slate-900 text-white border-slate-900"
-                          : "bg-white text-slate-600 border-slate-200 hover:border-slate-900 hover:text-slate-900"
+                          ? "bg-primary text-dark border-primary"
+                          : "bg-white/5 text-white/40 border-white/5 hover:border-white/20 hover:text-white"
                       }`}
                     >
                       {slot}
@@ -277,13 +275,13 @@ export default function BookingModal({
               {/* Dropoff time */}
               <div aria-live="polite">
                 {dropoffDateTime && (
-                  <div className="bg-slate-900 text-white rounded-xl p-4">
-                    <p className="text-xs text-slate-400 mb-1">Estimated drop-off</p>
-                    <p className="text-base font-bold text-green-400">
+                  <div className="bg-primary/5 border border-primary/10 rounded-lg p-6">
+                    <p className="text-[10px] text-primary font-black uppercase tracking-widest mb-2">Calculated Final Arrival</p>
+                    <p className="text-xl font-black text-white font-display uppercase italic tracking-tight">
                       {format(dropoffDateTime, "EEEE, MMM d 'at' h:mm a")}
                     </p>
-                    <p className="text-xs text-slate-500 mt-1">
-                      Includes 30 min loading &amp; unloading buffer
+                    <p className="text-[9px] text-white/30 font-bold uppercase tracking-widest mt-2">
+                      Includes tactical loading & industrial buffer
                     </p>
                   </div>
                 )}
@@ -291,78 +289,78 @@ export default function BookingModal({
 
               {/* Customer details */}
               <div>
-                <label className="flex items-center gap-2 text-sm font-semibold text-slate-900 mb-3">
-                  <User size={16} className="text-green-600" />
-                  Your Details
+                <label className="flex items-center gap-2 text-[10px] font-black text-white/40 uppercase tracking-widest mb-4">
+                  <User size={16} weight="bold" className="text-primary" />
+                  Identity Verification
                 </label>
-                <div className="space-y-2">
+                <div className="space-y-3">
                   <input
                     type="text"
-                    placeholder="Full name"
+                    placeholder="FULL NAME"
                     value={form.name}
                     onChange={setField("name")}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition-shadow"
+                    className="w-full px-5 py-4 rounded bg-white/5 border border-white/5 text-[13px] font-bold text-white uppercase tracking-tight placeholder-white/20 focus:outline-none focus:border-primary/50 transition-all"
                   />
                   <input
                     type="tel"
-                    placeholder="Phone number (e.g. +254 700 000 000)"
+                    placeholder="PHONE (e.g. +254 700...)"
                     value={form.phone}
                     onChange={setField("phone")}
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition-shadow"
+                    className="w-full px-5 py-4 rounded bg-white/5 border border-white/5 text-[13px] font-bold text-white uppercase tracking-tight placeholder-white/20 focus:outline-none focus:border-primary/50 transition-all"
                   />
-                  <div className="flex items-center gap-3 px-4 py-3 rounded-xl border border-slate-200 focus-within:ring-2 focus-within:ring-green-500 transition-shadow">
-                    <Envelope size={15} className="text-slate-400 flex-shrink-0" />
+                  <div className="flex items-center gap-4 px-5 py-4 rounded bg-white/5 border border-white/5 focus-within:border-primary/50 transition-all">
+                    <Envelope size={18} weight="bold" className="text-white/20 flex-shrink-0" />
                     <input
                       type="email"
-                      placeholder="Email address (for confirmation)"
+                      placeholder="EMAIL FOR CONFIRMATION"
                       value={form.email}
                       onChange={setField("email")}
-                      className="flex-1 bg-transparent text-sm text-slate-900 placeholder-slate-400 outline-none"
+                      className="flex-1 bg-transparent text-[13px] font-bold text-white uppercase tracking-tight placeholder-white/20 outline-none"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Action buttons */}
-              <div className="flex gap-3 pt-2">
+              <div className="flex flex-col sm:flex-row gap-3 pt-4">
                 <button
                   onClick={handleClose}
-                  className="flex-1 py-3 border border-slate-200 text-slate-600 rounded-xl font-semibold text-sm hover:bg-slate-50 transition-colors"
+                  className="flex-1 py-4 border border-white/10 text-white/40 rounded font-black text-[11px] uppercase tracking-widest hover:bg-white/5 hover:text-white transition-all"
                 >
-                  Cancel
+                  ABORT
                 </button>
                 <a
                   href="tel:+254700000000"
-                  className="flex items-center justify-center gap-2 flex-1 py-3 border-2 border-slate-900 text-slate-900 rounded-xl font-semibold text-sm hover:bg-slate-900 hover:text-white transition-colors"
+                  className="flex items-center justify-center gap-2 flex-1 py-4 border border-white/10 text-white rounded font-black text-[11px] uppercase tracking-widest hover:bg-white/5 transition-all"
                 >
-                  <Phone size={15} />
-                  Call Us
+                  <Phone size={16} weight="bold" />
+                  TALK TO OPS
                 </a>
                 <button
                   onClick={handleBook}
                   disabled={!selectedDate || submitting}
-                  className="flex-1 py-3 bg-green-600 text-white rounded-xl font-bold text-sm hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="flex-1 py-4 bg-primary text-dark rounded font-black text-[11px] uppercase tracking-widest hover:bg-yellow transition-all disabled:opacity-20 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {submitting ? (
                     <>
-                      <SpinnerGap size={15} className="animate-spin" />
-                      Booking…
+                      <SpinnerGap size={18} weight="bold" className="animate-spin" />
+                      PROCESSING
                     </>
                   ) : (
-                    "Book Now"
+                    "INITIALIZE BOOKING"
                   )}
                 </button>
               </div>
 
               {formError && (
-                <p className="text-xs text-center text-red-500 font-medium" role="alert">
-                  {formError}
+                <p className="text-[10px] text-center text-yellow font-black uppercase tracking-widest" role="alert">
+                  [ERROR]: {formError}
                 </p>
               )}
 
               {!selectedDate && !formError && (
-                <p className="text-xs text-center text-slate-400">
-                  Please select a pickup date to continue
+                <p className="text-[9px] text-center text-white/20 font-bold uppercase tracking-[0.2em]">
+                  Awaiting operational date selection
                 </p>
               )}
             </div>
