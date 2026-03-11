@@ -41,7 +41,7 @@ export default function PricingSection() {
               {plan.highlight && (
                 <div className="absolute -top-3 left-6">
                   <span
-                    className="inline-flex items-center gap-1.5 bg-[#b9ff66] px-3 py-1 rounded-md text-[11px] font-semibold text-[#111111]"
+                    className="inline-flex items-center gap-1.5 bg-[#6aaf15] px-3 py-1 rounded-md text-[11px] font-semibold text-white"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
                     Most Popular
@@ -93,7 +93,7 @@ export default function PricingSection() {
               <ul className="space-y-3 flex-1 mb-8">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-3">
-                    <div className="w-4 h-4 rounded-sm bg-[#f4ffb0] border border-[#e8f59e] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div className="w-4 h-4 rounded-sm bg-[#d4c830]/30 border border-[#c8b820] flex items-center justify-center flex-shrink-0 mt-0.5">
                       <div className="w-1.5 h-1.5 rounded-sm bg-[#111111]" />
                     </div>
                     <span

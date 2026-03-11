@@ -41,7 +41,7 @@ export default function HowItWorksSection() {
               )}
               <div className="relative z-10 p-7 bg-white border border-[#efefef] rounded-lg hover:border-[#111111]/20 hover:shadow-sm transition-all duration-300">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-9 h-9 rounded-lg bg-[#f4ffb0] border border-[#e8f59e] flex items-center justify-center flex-shrink-0">
+                  <div className="w-9 h-9 rounded-lg bg-[#d4c830]/30 border border-[#c8b820] flex items-center justify-center flex-shrink-0">
                     <span
                       className="text-[12px] font-bold text-[#111111]"
                       style={{ fontFamily: "var(--font-mono)" }}

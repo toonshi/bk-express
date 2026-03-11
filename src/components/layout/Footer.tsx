@@ -30,7 +30,7 @@ export default function Footer() {
             </a>
             <a
               href="#booking"
-              className="px-8 py-3.5 bg-[#b9ff66] text-[#111111] rounded-lg font-semibold text-[14px] hover:bg-[#a8f050] transition-all w-full sm:w-auto text-center"
+              className="px-8 py-3.5 bg-[#6aaf15] text-white rounded-lg font-semibold text-[14px] hover:bg-[#5a9a10] transition-all w-full sm:w-auto text-center"
               style={{ fontFamily: "var(--font-display)" }}
             >
               Get Started
@@ -44,9 +44,9 @@ export default function Footer() {
         {/* Brand */}
         <div className="lg:col-span-2">
           <div className="flex items-center gap-3 mb-7">
-            <div className="w-9 h-9 bg-[#b9ff66] rounded-lg flex items-center justify-center">
+            <div className="w-9 h-9 bg-[#6aaf15] rounded-lg flex items-center justify-center">
               <span
-                className="text-[#111111] font-bold text-[12px]"
+                className="text-white font-bold text-[12px]"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 BK
@@ -146,7 +146,7 @@ export default function Footer() {
             © {new Date().getFullYear()} BK Express. All rights reserved.
           </p>
           <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#b9ff66]" />
+            <div className="w-1.5 h-1.5 rounded-full bg-[#6aaf15]" />
             <p
               className="text-[12px] text-white/40"
               style={{ fontFamily: "var(--font-sans)" }}

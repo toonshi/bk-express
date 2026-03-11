@@ -56,7 +56,7 @@ export default function CitiesSection() {
                     {city.name}
                   </h3>
                 </div>
-                <div className="w-9 h-9 rounded-lg bg-[#f8f8f8] border border-[#efefef] flex items-center justify-center flex-shrink-0 group-hover:bg-[#f4ffb0] group-hover:border-[#e8f59e] transition-colors">
+                <div className="w-9 h-9 rounded-lg bg-[#f8f8f8] border border-[#efefef] flex items-center justify-center flex-shrink-0 group-hover:bg-[#d4c830]/30 group-hover:border-[#c8b820] transition-colors">
                   <MapPin
                     size={16}
                     className={city.comingSoon ? "text-[#999999]" : "text-[#111111]"}
@@ -69,7 +69,7 @@ export default function CitiesSection() {
                   className={`inline-block text-[12px] font-semibold px-3 py-1 rounded-md ${
                     city.comingSoon
                       ? "bg-[#f8f8f8] text-[#999999] border border-[#efefef]"
-                      : "bg-[#f4ffb0] text-[#111111] border border-[#e8f59e]"
+                      : "bg-[#d4c830]/30 text-[#111111] border border-[#c8b820]"
                   }`}
                   style={{ fontFamily: "var(--font-mono)" }}
                 >

@@ -34,11 +34,12 @@ export default function Navbar() {
         {/* Logo */}
         <a href="/" className="flex items-center">
           <Image
-            src="/logo.svg"
+            src="https://github.com/user-attachments/assets/be7831c5-6bcb-4b4f-b733-eea3bfd6b117"
             alt="BK Express"
-            width={120}
-            height={32}
+            width={56}
+            height={56}
             priority
+            className="object-contain"
           />
         </a>
 
@@ -67,7 +68,7 @@ export default function Navbar() {
           </a>
           <a
             href="tel:+254700000000"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-[14px] bg-[#b9ff66] text-[#111111] hover:bg-[#a8f050] transition-colors duration-200"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg font-semibold text-[14px] bg-[#6aaf15] text-white hover:bg-[#5a9a10] transition-colors duration-200"
             style={{ fontFamily: "var(--font-display)" }}
           >
             Talk to Dispatch
@@ -102,7 +103,7 @@ export default function Navbar() {
             <div className="pt-8 flex flex-col gap-3 border-t border-[#efefef]">
               <a
                 href="tel:+254700000000"
-                className="inline-flex justify-center px-8 py-3.5 bg-[#b9ff66] text-[#111111] rounded-lg font-semibold text-sm"
+                className="inline-flex justify-center px-8 py-3.5 bg-[#6aaf15] text-white rounded-lg font-semibold text-sm"
                 style={{ fontFamily: "var(--font-display)" }}
                 onClick={() => setMobileOpen(false)}
               >

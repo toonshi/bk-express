@@ -45,7 +45,7 @@ export default function TestimonialsSection() {
               </p>
 
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-lg bg-[#f4ffb0] border border-[#e8f59e] flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-[#d4c830]/30 border border-[#c8b820] flex items-center justify-center flex-shrink-0">
                   <span
                     className="text-[#111111] font-bold text-[12px]"
                     style={{ fontFamily: "var(--font-display)" }}

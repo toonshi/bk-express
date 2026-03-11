@@ -38,7 +38,7 @@ export default function ServicesSection() {
                 key={service.title}
                 className="group relative p-8 bg-white border border-[#efefef] rounded-lg hover:border-[#111111]/20 hover:shadow-sm transition-all duration-300"
               >
-                <div className="w-11 h-11 rounded-lg bg-[#f8f8f8] border border-[#efefef] flex items-center justify-center mb-6 group-hover:bg-[#f4ffb0] group-hover:border-[#e8f59e] transition-colors">
+                <div className="w-11 h-11 rounded-lg bg-[#f8f8f8] border border-[#efefef] flex items-center justify-center mb-6 group-hover:bg-[#d4c830]/30 group-hover:border-[#c8b820] transition-colors">
                   <Icon size={20} className="text-[#111111]" />
                 </div>
                 <span

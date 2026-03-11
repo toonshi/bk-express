@@ -142,7 +142,7 @@ export default function LocationInput({
                 }}
                 className={`w-full text-left px-4 py-3 text-[13px] font-medium flex items-center gap-3 transition-colors ${
                   i === activeIndex
-                    ? "bg-[#f4ffb0] text-[#111111]"
+                    ? "bg-[#d4c830]/25 text-[#111111]"
                     : "text-[#666666] hover:bg-[#f8f8f8] hover:text-[#111111]"
                 }`}
                 style={{ fontFamily: "var(--font-sans)" }}
