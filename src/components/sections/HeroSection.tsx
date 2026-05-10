@@ -1,4 +1,5 @@
 import BookingWidget from "@/components/booking/BookingWidget";
+import Image from "next/image";
 import { Phone, Envelope } from "@phosphor-icons/react/ssr";
 import { STATS } from "@/data";
 
@@ -47,10 +48,10 @@ export default function HeroSection() {
               <h1
                 role="heading"
                 tabIndex={0}
-                className="text-[56px] text-[#0D171A] leading-[1.0] tracking-[-0.04em]"
+                className="text-[42px] sm:text-[52px] lg:text-[60px] text-[#111111] leading-[0.98] tracking-[-0.035em]"
                 style={{
-                  fontFamily: "Saans, Arial, sans-serif",
-                  fontWeight: 900,
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
                 }}
               >
                 Logistics for the<br />
@@ -59,7 +60,7 @@ export default function HeroSection() {
 
               {/* Subtext */}
               <p
-                className="text-[22px] text-[#666666] leading-[1.5] max-w-lg"
+                className="text-[18px] sm:text-[20px] text-[#555555] leading-[1.6] max-w-xl"
                 style={{ fontFamily: "var(--font-sans)", fontWeight: 400 }}
               >
                 BK Express delivers{" "}
@@ -100,7 +101,7 @@ export default function HeroSection() {
                 </a>
                 <a
                   href="mailto:hello@bkexpress.co.ke"
-                  className="flex items-center gap-2 text-[14px] font-medium text-[#999999] hover:text-[#111111] transition-colors"
+                  className="flex items-center gap-2 text-[14px] font-medium text-[#777777] hover:text-[#111111] transition-colors"
                   style={{ fontFamily: "var(--font-display)" }}
                 >
                   <Envelope size={13} />
@@ -119,7 +120,7 @@ export default function HeroSection() {
                       {stat.value}
                     </p>
                     <p
-                      className="text-[12px] text-[#999999] mt-0.5 font-medium tracking-wide"
+                      className="text-[12px] text-[#777777] mt-0.5 font-medium tracking-wide"
                       style={{ fontFamily: "var(--font-display)" }}
                     >
                       {stat.label}
@@ -134,12 +135,13 @@ export default function HeroSection() {
 
               {/* Hero truck image */}
               <div className="relative rounded-xl overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="https://github.com/user-attachments/assets/af203c77-5598-4e89-b060-770881b6ac17"
                   alt="BK Express truck — Isuzu FRR"
-                  className="w-full object-cover"
-                  style={{ height: "420px" }}
+                  width={1200}
+                  height={840}
+                  className="w-full h-[420px] object-cover"
+                  priority
                 />
                 {/* dark gradient so the overlay card text stays readable */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
