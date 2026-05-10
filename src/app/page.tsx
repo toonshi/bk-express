@@ -36,7 +36,7 @@ export default function Home() {
             {TRUSTED_BY.map((name) => (
               <span
                 key={name}
-                className="text-[15px] font-semibold text-[#cccccc] hover:text-[#999999] transition-colors duration-200 tracking-tight"
+                className="text-[15px] font-semibold text-[#9a9a9a] hover:text-[#666666] transition-colors duration-200 tracking-tight"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 {name}
