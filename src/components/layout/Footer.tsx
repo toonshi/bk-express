@@ -3,37 +3,37 @@ import { Phone, Envelope, MapPin } from "@phosphor-icons/react/ssr";
 export default function Footer() {
   return (
     <footer className="bg-[#111111] text-white">
-      {/* CTA Banner */}
-      <div className="border-b border-white/[0.08]">
+      {/* Contact Section */}
+      <div id="contact" className="border-b border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-6 py-24 flex flex-col md:flex-row items-start justify-between gap-12">
           <div className="max-w-xl">
             <h2
               className="text-4xl md:text-5xl text-white leading-tight tracking-[-0.03em]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 900 }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
             >
-              Ready to get<br />started?
+              Contact us.
             </h2>
             <p
-              className="text-white/50 mt-5 text-[16px] leading-relaxed max-w-md"
+              className="text-white/50 mt-5 text-[18px] leading-relaxed max-w-md"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              Book your delivery in seconds — or contact us for large-scale logistics solutions.
+              Need help or have a special request? We&apos;re here to talk.
             </p>
           </div>
           <div className="flex-shrink-0 flex flex-col sm:flex-row items-start gap-3 mt-2">
+            <a
+              href="tel:+254700000000"
+              className="px-8 py-3.5 bg-[#b9ff66] text-[#111111] rounded-lg font-semibold text-[14px] hover:bg-[#a8f050] transition-all w-full sm:w-auto text-center"
+              style={{ fontFamily: "var(--font-display)" }}
+            >
+              Call +254 700 000 000
+            </a>
             <a
               href="mailto:hello@bkexpress.co.ke"
               className="px-8 py-3.5 border border-white/[0.12] text-white/60 rounded-lg font-medium text-[14px] hover:text-white hover:border-white/30 transition-all w-full sm:w-auto text-center"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Email Support
-            </a>
-            <a
-              href="#booking"
-              className="px-8 py-3.5 bg-[#b9ff66] text-[#111111] rounded-lg font-semibold text-[14px] hover:bg-[#a8f050] transition-all w-full sm:w-auto text-center"
-              style={{ fontFamily: "var(--font-display)" }}
-            >
-              Get Started
+              Email us
             </a>
           </div>
         </div>
@@ -60,10 +60,10 @@ export default function Footer() {
             </span>
           </div>
           <p
-            className="text-white/40 text-[14px] leading-relaxed max-w-sm mb-8"
+            className="text-white/40 text-[15px] leading-relaxed max-w-sm mb-8"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            Industrial-grade logistics infrastructure. Moving market produce and household goods across the Kenyan corridor with high-precision dispatch.
+            Reliable transport for your goods across Kenya.
           </p>
           <div className="space-y-3.5">
             <a
@@ -82,10 +82,6 @@ export default function Footer() {
               <Envelope size={14} />
               hello@bkexpress.co.ke
             </a>
-            <div className="flex items-center gap-3 text-[14px] text-white/30">
-              <MapPin size={14} />
-              Nairobi HQ, Kenya
-            </div>
           </div>
         </div>
 
@@ -95,10 +91,10 @@ export default function Footer() {
             className="text-[11px] font-semibold uppercase tracking-widest text-white/30 mb-6"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Company
+            Quick Links
           </h4>
           <ul className="space-y-3.5">
-            {["About", "Services", "Pricing", "Operations", "Careers"].map((item) => (
+            {["Services", "Coverage", "Reviews"].map((item) => (
               <li key={item}>
                 <a
                   href={`#${item.toLowerCase().replace(/\s/g, "")}`}
@@ -121,7 +117,7 @@ export default function Footer() {
             Legal
           </h4>
           <ul className="space-y-3.5">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
+            {["Privacy", "Terms"].map((item) => (
               <li key={item}>
                 <a
                   href="#"
@@ -143,7 +139,7 @@ export default function Footer() {
             className="text-[12px] text-white/30"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            © {new Date().getFullYear()} BK Express. All rights reserved.
+            © {new Date().getFullYear()} BK Express.
           </p>
           <div className="flex items-center gap-2">
             <div className="w-1.5 h-1.5 rounded-full bg-[#b9ff66]" />
@@ -151,7 +147,7 @@ export default function Footer() {
               className="text-[12px] text-white/40"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              Engineered in Nairobi
+              Nairobi, Kenya
             </p>
           </div>
         </div>

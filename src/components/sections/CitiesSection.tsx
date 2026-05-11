@@ -13,21 +13,21 @@ export default function CitiesSection() {
                 className="text-[12px] font-medium text-[#666666] tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Network Coverage
+                Coverage
               </span>
             </div>
             <h2
               className="text-4xl md:text-5xl text-[#111111] leading-tight tracking-[-0.03em]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 900 }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
             >
-              Regional<br />deployment.
+              We deliver to these areas.
             </h2>
           </div>
           <p
             className="text-[#666666] max-w-sm text-[17px] leading-relaxed"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            Our logistics network covers Nairobi and major industrial hubs across Kenya with daily dispatch cycles.
+            Our drivers are active across Nairobi and major towns in Kenya every single day.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export default function CitiesSection() {
               className={`group relative p-7 rounded-lg border transition-all duration-300 ${
                 city.comingSoon
                   ? "opacity-50 bg-[#f8f8f8] border-[#efefef] cursor-default"
-                  : "bg-white border-[#efefef] hover:border-[#111111]/20 hover:shadow-sm"
+                  : "bg-white border-[#efefef] hover:border-[#111111]/20 hover:shadow-xl"
               }`}
             >
               <div className="flex items-start justify-between mb-5">
@@ -47,7 +47,7 @@ export default function CitiesSection() {
                     className="text-[11px] font-semibold text-[#999999] tracking-widest mb-1.5 block uppercase"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
-                    {city.comingSoon ? "Coming Soon" : "Active"}
+                    {city.comingSoon ? "Coming Soon" : "Active area"}
                   </span>
                   <h3
                     className="text-[18px] font-bold text-[#111111]"

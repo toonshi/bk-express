@@ -2,7 +2,7 @@ import { SERVICES } from "@/data";
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative py-28 bg-white overflow-hidden square-grid">
+    <section id="services" className="relative py-28 bg-white overflow-hidden">
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16">
           <div className="max-w-xl">
@@ -12,21 +12,21 @@ export default function ServicesSection() {
                 className="text-[12px] font-medium text-[#666666] tracking-widest uppercase"
                 style={{ fontFamily: "var(--font-display)" }}
               >
-                Service Capabilities
+                Our services
               </span>
             </div>
             <h2
               className="text-4xl md:text-5xl text-[#111111] leading-tight tracking-[-0.03em]"
-              style={{ fontFamily: "var(--font-display)", fontWeight: 900 }}
+              style={{ fontFamily: "var(--font-display)", fontWeight: 700 }}
             >
-              Infrastructure for<br />any cargo.
+              We move what matters<br />to you.
             </h2>
           </div>
           <p
             className="text-[#666666] max-w-sm text-[17px] leading-relaxed"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            From industrial produce to household goods, we provide the backbone for Kenya&apos;s logistics needs.
+            From small parcels to entire house moves, we have the right truck for the job.
           </p>
         </div>
 
@@ -36,7 +36,7 @@ export default function ServicesSection() {
             return (
               <div
                 key={service.title}
-                className="group relative p-8 bg-white border border-[#efefef] rounded-lg hover:border-[#111111]/20 hover:shadow-sm transition-all duration-300"
+                className="group relative p-8 bg-white border border-[#efefef] rounded-2xl hover:border-[#111111]/20 hover:shadow-xl transition-all duration-300"
               >
                 <div className="w-11 h-11 rounded-lg bg-[#f8f8f8] border border-[#efefef] flex items-center justify-center mb-6 group-hover:bg-[#f4ffb0] group-hover:border-[#e8f59e] transition-colors">
                   <Icon size={20} className="text-[#111111]" />

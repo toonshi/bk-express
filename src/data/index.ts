@@ -38,23 +38,18 @@ export const SERVICES: Service[] = [
 export const STEPS = [
   {
     number: "01",
-    title: "Enter locations",
-    description: "Type in your pickup and drop-off addresses anywhere in our coverage zone — we support named towns and market areas.",
+    title: "Get a price",
+    description: "Enter your locations to see exactly what it will cost.",
   },
   {
     number: "02",
-    title: "See your price",
-    description: "We calculate the road distance in real time and give you a clear, no-hidden-charges price before you commit.",
+    title: "Pick a time",
+    description: "Choose when you want us to arrive and enter your details.",
   },
   {
     number: "03",
-    title: "Pick a date & time",
-    description: "Choose when you want us to arrive. We confirm your estimated delivery window automatically.",
-  },
-  {
-    number: "04",
     title: "We deliver",
-    description: "Our driver arrives at your gate on time. Track your shipment and reach us by call or WhatsApp any time.",
+    description: "Our driver arrives on time and gets your goods moving.",
   },
 ];
 

@@ -67,9 +67,9 @@
   --primrose:   #f4ffb0;
   --dark:       #111111;
 
-  --font-sans:    "NHG Text",    system-ui, sans-serif;
-  --font-display: "NHG Display", system-ui, sans-serif;
-  --font-mono:    ui-monospace, "SF Mono", "Roboto Mono", monospace;
+  --font-sans:    "Inter", system-ui, sans-serif;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-mono:    "Geist Mono", ui-monospace, monospace;
 }
 
 @theme inline {
@@ -102,6 +102,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 /* ─── Utilities ─────────────────────────────────────────────────────────────── */

@@ -120,21 +120,21 @@ export default function BookingModal({
   return (
     <Dialog.Root open={open} onOpenChange={(v) => !v && handleClose()}>
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
-        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg max-h-[90vh] overflow-y-auto bg-[#0c0c17] border border-white/[0.08] rounded-2xl shadow-2xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
+        <Dialog.Overlay className="fixed inset-0 bg-black/20 backdrop-blur-sm z-50 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
+        <Dialog.Content className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-full max-w-lg max-h-[90vh] overflow-y-auto bg-white border border-[#efefef] rounded-2xl shadow-xl data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95">
           {/* Header */}
-          <div className="flex items-center justify-between px-7 pt-7 pb-5 border-b border-white/[0.06]">
+          <div className="flex items-center justify-between px-7 pt-7 pb-5 border-b border-[#efefef]">
             <div>
-              <Dialog.Title className="text-xl font-bold text-white font-display">
-                Confirm your <span className="gradient-text">booking</span>
+              <Dialog.Title className="text-xl font-bold text-[#111111] font-display">
+                Confirm your booking
               </Dialog.Title>
-              <Dialog.Description className="text-xs text-white/40 mt-1 font-medium">
+              <Dialog.Description className="text-xs text-[#666666] mt-1 font-medium">
                 Select a date, time, and enter your details
               </Dialog.Description>
             </div>
             <button
               onClick={handleClose}
-              className="p-1.5 rounded-lg hover:bg-white/[0.06] transition-colors text-white/30 hover:text-white"
+              className="p-1.5 rounded-lg hover:bg-[#f8f8f8] transition-colors text-[#999999] hover:text-[#111111]"
               aria-label="Close"
             >
               <X size={18} />
@@ -143,27 +143,27 @@ export default function BookingModal({
 
           {submitted ? (
             <div className="px-7 py-16 flex flex-col items-center text-center gap-5">
-              <div className="w-16 h-16 bg-primary/15 border border-primary/25 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(124,58,237,0.2)]">
-                <CheckCircle size={32} className="text-primary-light" />
+              <div className="w-16 h-16 bg-[#f4ffb0] border border-[#e8f59e] rounded-full flex items-center justify-center">
+                <CheckCircle size={32} className="text-[#111111]" />
               </div>
               <div>
-                <h3 className="text-2xl font-bold text-white font-display">Booking Confirmed</h3>
-                <p className="text-sm text-white/40 mt-1.5">Your reference number</p>
+                <h3 className="text-2xl font-bold text-[#111111] font-display">Booking Confirmed</h3>
+                <p className="text-sm text-[#666666] mt-1.5">Your reference number</p>
               </div>
               {bookingRef && (
-                <div className="bg-primary/10 border border-primary/20 text-primary-light rounded-xl px-8 py-3.5 font-mono font-semibold text-lg tracking-[0.2em]">
+                <div className="bg-[#f8f8f8] border border-[#efefef] text-[#111111] rounded-xl px-8 py-3.5 font-mono font-semibold text-lg tracking-[0.2em]">
                   {bookingRef}
                 </div>
               )}
-              <p className="text-white/50 max-w-xs text-sm leading-relaxed">
+              <p className="text-[#666666] max-w-xs text-sm leading-relaxed">
                 Confirmation sent to{" "}
-                <span className="text-white">{form.email}</span>.{" "}
+                <span className="text-[#111111] font-medium">{form.email}</span>.{" "}
                 Pickup scheduled for{" "}
-                {pickupDateTime && format(pickupDateTime, "MMM d 'at' p")}.
+                <span className="text-[#111111] font-medium">{pickupDateTime && format(pickupDateTime, "MMM d 'at' p")}</span>.
               </p>
               <button
                 onClick={handleClose}
-                className="mt-3 px-10 py-3.5 bg-primary text-white rounded-xl font-semibold text-sm hover:bg-primary-light transition-all shadow-[0_0_20px_rgba(124,58,237,0.3)]"
+                className="mt-3 px-10 py-3.5 bg-[#111111] text-white rounded-xl font-semibold text-sm hover:bg-[#333333] transition-colors"
               >
                 Done
               </button>
@@ -171,34 +171,34 @@ export default function BookingModal({
           ) : (
             <div className="px-7 py-7 space-y-7">
               {/* Route summary */}
-              <div className="bg-white/[0.04] border border-white/[0.07] rounded-xl p-5 space-y-3.5">
+              <div className="bg-[#f8f8f8] border border-[#efefef] rounded-xl p-5 space-y-3.5">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1.5 w-2 h-2 rounded-full bg-primary-light flex-shrink-0" />
+                  <div className="mt-1.5 w-2 h-2 rounded-full bg-[#111111] flex-shrink-0" />
                   <div>
-                    <p className="text-[11px] text-white/30 font-medium mb-0.5">Pickup</p>
-                    <p className="text-sm font-medium text-white">{pickup}</p>
+                    <p className="text-[11px] text-[#999999] font-medium mb-0.5">Pickup</p>
+                    <p className="text-sm font-medium text-[#111111]">{pickup}</p>
                   </div>
                 </div>
-                <div className="ml-[3px] w-px h-5 bg-white/10" />
+                <div className="ml-[3px] w-px h-5 bg-[#efefef]" />
                 <div className="flex items-start gap-3">
-                  <div className="mt-1.5 w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+                  <div className="mt-1.5 w-2 h-2 rounded-full bg-[#666666] flex-shrink-0" />
                   <div>
-                    <p className="text-[11px] text-white/30 font-medium mb-0.5">Drop-off</p>
-                    <p className="text-sm font-medium text-white">{dropoff}</p>
+                    <p className="text-[11px] text-[#999999] font-medium mb-0.5">Drop-off</p>
+                    <p className="text-sm font-medium text-[#111111]">{dropoff}</p>
                   </div>
                 </div>
-                <div className="pt-3.5 flex gap-6 border-t border-white/[0.06]">
+                <div className="pt-3.5 flex gap-6 border-t border-[#efefef]">
                   <div>
-                    <p className="text-[11px] text-white/30 font-medium mb-0.5">Distance</p>
-                    <p className="text-sm font-semibold text-white">{distanceKm.toFixed(1)} km</p>
+                    <p className="text-[11px] text-[#999999] font-medium mb-0.5">Distance</p>
+                    <p className="text-sm font-semibold text-[#111111]">{distanceKm.toFixed(1)} km</p>
                   </div>
                   <div>
-                    <p className="text-[11px] text-white/30 font-medium mb-0.5">Est. time</p>
-                    <p className="text-sm font-semibold text-white">{durationMinutes} min</p>
+                    <p className="text-[11px] text-[#999999] font-medium mb-0.5">Est. time</p>
+                    <p className="text-sm font-semibold text-[#111111]">{durationMinutes} min</p>
                   </div>
                   <div className="ml-auto text-right">
-                    <p className="text-[11px] text-white/30 font-medium mb-0.5">Total</p>
-                    <p className="text-xl font-bold text-primary-light font-display">
+                    <p className="text-[11px] text-[#999999] font-medium mb-0.5">Total</p>
+                    <p className="text-xl font-bold text-[#111111] font-display">
                       {PRICING.currency} {price.toFixed(0)}
                     </p>
                   </div>
@@ -207,11 +207,11 @@ export default function BookingModal({
 
               {/* Date picker */}
               <div>
-                <label className="flex items-center gap-2 text-xs font-semibold text-white/40 mb-3">
-                  <CalendarBlank size={14} className="text-primary-light" />
+                <label className="flex items-center gap-2 text-xs font-semibold text-[#666666] mb-3">
+                  <CalendarBlank size={14} className="text-[#111111]" />
                   Select date
                 </label>
-                <div className="border border-white/[0.07] rounded-xl p-5 bg-white/[0.03]">
+                <div className="border border-[#efefef] rounded-xl p-5 bg-white shadow-sm">
                   <DayPicker
                     mode="single"
                     selected={selectedDate}
@@ -224,28 +224,28 @@ export default function BookingModal({
                       month_caption:
                         "flex items-center justify-between mb-5 px-1",
                       caption_label:
-                        "text-xs font-semibold text-white/70 select-none",
+                        "text-xs font-semibold text-[#111111] select-none",
                       nav: "flex items-center gap-2",
                       button_previous:
-                        "w-7 h-7 flex items-center justify-center rounded-lg bg-white/[0.05] hover:bg-white/10 text-white/50 hover:text-white transition-colors",
+                        "w-7 h-7 flex items-center justify-center rounded-lg bg-[#f8f8f8] hover:bg-[#efefef] text-[#666666] hover:text-[#111111] transition-colors",
                       button_next:
-                        "w-7 h-7 flex items-center justify-center rounded-lg bg-white/[0.05] hover:bg-white/10 text-white/50 hover:text-white transition-colors",
+                        "w-7 h-7 flex items-center justify-center rounded-lg bg-[#f8f8f8] hover:bg-[#efefef] text-[#666666] hover:text-[#111111] transition-colors",
                       month_grid: "w-full border-collapse",
                       weekdays: "flex w-full mb-2",
                       weekday:
-                        "flex-1 text-center text-[10px] font-medium text-white/25 py-2 select-none",
+                        "flex-1 text-center text-[10px] font-medium text-[#999999] py-2 select-none",
                       weeks: "w-full",
                       week: "flex w-full mt-1",
                       day: "flex-1 flex items-center justify-center p-0",
                       day_button:
-                        "w-9 h-9 mx-auto text-xs rounded-lg transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-primary/50 hover:bg-white/[0.08] text-white/60 font-medium cursor-pointer",
+                        "w-9 h-9 mx-auto text-xs rounded-lg transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#111111] hover:bg-[#f8f8f8] text-[#111111] font-medium cursor-pointer",
                       selected:
-                        "!bg-primary !text-white rounded-lg font-semibold shadow-[0_0_12px_rgba(124,58,237,0.4)]",
-                      today: "text-primary-light border border-primary/20 font-semibold",
+                        "!bg-[#111111] !text-white rounded-lg font-semibold shadow-sm",
+                      today: "text-[#111111] border border-[#efefef] font-semibold",
                       outside:
-                        "text-white/10 hover:bg-transparent cursor-default",
+                        "text-[#cccccc] hover:bg-transparent cursor-default",
                       disabled:
-                        "text-white/10 cursor-not-allowed hover:!bg-transparent",
+                        "text-[#cccccc] cursor-not-allowed hover:!bg-transparent",
                     }}
                   />
                 </div>
@@ -253,8 +253,8 @@ export default function BookingModal({
 
               {/* Time picker */}
               <div>
-                <label className="flex items-center gap-2 text-xs font-semibold text-white/40 mb-3">
-                  <Clock size={14} className="text-primary-light" />
+                <label className="flex items-center gap-2 text-xs font-semibold text-[#666666] mb-3">
+                  <Clock size={14} className="text-[#111111]" />
                   Select time
                 </label>
                 <div className="grid grid-cols-4 gap-2">
@@ -264,8 +264,8 @@ export default function BookingModal({
                       onClick={() => setSelectedTime(slot)}
                       className={`py-2.5 px-2 rounded-lg font-medium text-xs border transition-all ${
                         selectedTime === slot
-                          ? "bg-primary/20 text-primary-light border-primary/30 shadow-[0_0_12px_rgba(124,58,237,0.2)]"
-                          : "bg-white/[0.03] text-white/40 border-white/[0.06] hover:border-white/15 hover:text-white/70"
+                          ? "bg-[#111111] text-white border-[#111111] shadow-sm"
+                          : "bg-white text-[#666666] border-[#efefef] hover:border-[#cccccc] hover:text-[#111111]"
                       }`}
                     >
                       {slot}
@@ -277,20 +277,20 @@ export default function BookingModal({
               {/* Estimated dropoff */}
               <div aria-live="polite">
                 {dropoffDateTime && (
-                  <div className="bg-accent/5 border border-accent/15 rounded-xl p-5">
-                    <p className="text-xs text-accent/70 font-medium mb-1.5">Estimated arrival</p>
-                    <p className="text-base font-semibold text-white font-display">
+                  <div className="bg-[#f4ffb0]/50 border border-[#e8f59e] rounded-xl p-5">
+                    <p className="text-xs text-[#666666] font-medium mb-1.5">Estimated arrival</p>
+                    <p className="text-base font-semibold text-[#111111] font-display">
                       {format(dropoffDateTime, "EEEE, MMM d 'at' h:mm a")}
                     </p>
-                    <p className="text-xs text-white/30 mt-1.5">Includes loading buffer time</p>
+                    <p className="text-xs text-[#999999] mt-1.5">Includes loading buffer time</p>
                   </div>
                 )}
               </div>
 
               {/* Customer details */}
               <div>
-                <label className="flex items-center gap-2 text-xs font-semibold text-white/40 mb-3">
-                  <User size={14} className="text-primary-light" />
+                <label className="flex items-center gap-2 text-xs font-semibold text-[#666666] mb-3">
+                  <User size={14} className="text-[#111111]" />
                   Your details
                 </label>
                 <div className="space-y-2.5">
@@ -299,23 +299,23 @@ export default function BookingModal({
                     placeholder="Full name"
                     value={form.name}
                     onChange={setField("name")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.07] text-sm font-medium text-white placeholder-white/25 focus:outline-none focus:border-primary/40 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#efefef] text-sm font-medium text-[#111111] placeholder-[#999999] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111]/20 transition-all shadow-sm"
                   />
                   <input
                     type="tel"
                     placeholder="Phone (e.g. +254 700...)"
                     value={form.phone}
                     onChange={setField("phone")}
-                    className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.07] text-sm font-medium text-white placeholder-white/25 focus:outline-none focus:border-primary/40 transition-all"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[#efefef] text-sm font-medium text-[#111111] placeholder-[#999999] focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111]/20 transition-all shadow-sm"
                   />
-                  <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.07] focus-within:border-primary/40 transition-all">
-                    <Envelope size={15} className="text-white/20 flex-shrink-0" />
+                  <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white border border-[#efefef] focus-within:border-[#111111] focus-within:ring-1 focus-within:ring-[#111111]/20 transition-all shadow-sm">
+                    <Envelope size={15} className="text-[#999999] flex-shrink-0" />
                     <input
                       type="email"
                       placeholder="Email for confirmation"
                       value={form.email}
                       onChange={setField("email")}
-                      className="flex-1 bg-transparent text-sm font-medium text-white placeholder-white/25 outline-none"
+                      className="flex-1 bg-transparent text-sm font-medium text-[#111111] placeholder-[#999999] outline-none"
                     />
                   </div>
                 </div>
@@ -325,13 +325,13 @@ export default function BookingModal({
               <div className="flex flex-col sm:flex-row gap-2.5 pt-2">
                 <button
                   onClick={handleClose}
-                  className="flex-1 py-3.5 border border-white/[0.08] text-white/40 rounded-xl font-medium text-sm hover:bg-white/[0.05] hover:text-white transition-all"
+                  className="flex-1 py-3.5 border border-[#efefef] text-[#666666] rounded-xl font-medium text-sm hover:bg-[#f8f8f8] hover:text-[#111111] transition-all bg-white"
                 >
                   Cancel
                 </button>
                 <a
                   href="tel:+254700000000"
-                  className="flex items-center justify-center gap-2 flex-1 py-3.5 border border-white/[0.08] text-white/60 rounded-xl font-medium text-sm hover:bg-white/[0.05] hover:text-white transition-all"
+                  className="flex items-center justify-center gap-2 flex-1 py-3.5 border border-[#efefef] text-[#666666] rounded-xl font-medium text-sm hover:bg-[#f8f8f8] hover:text-[#111111] transition-all bg-white"
                 >
                   <Phone size={14} />
                   Call Us
@@ -339,11 +339,11 @@ export default function BookingModal({
                 <button
                   onClick={handleBook}
                   disabled={!selectedDate || submitting}
-                  className="flex-1 py-3.5 bg-primary text-white rounded-xl font-semibold text-sm hover:bg-primary-light transition-all disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(124,58,237,0.35)]"
+                  className="flex-1 py-3.5 bg-[#b9ff66] text-[#111111] rounded-xl font-semibold text-sm hover:bg-[#a8f050] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm"
                 >
                   {submitting ? (
                     <>
-                      <SpinnerGap size={15} className="animate-spin" />
+                      <SpinnerGap size={15} className="animate-spin text-[#111111]" />
                       Processing...
                     </>
                   ) : (
@@ -353,13 +353,13 @@ export default function BookingModal({
               </div>
 
               {formError && (
-                <p className="text-xs text-center text-red-400 font-medium" role="alert">
+                <p className="text-xs text-center text-red-500 font-medium" role="alert">
                   {formError}
                 </p>
               )}
 
               {!selectedDate && !formError && (
-                <p className="text-xs text-center text-white/20 font-medium">
+                <p className="text-xs text-center text-[#999999] font-medium">
                   Please select a pickup date to continue
                 </p>
               )}

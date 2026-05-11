@@ -45,11 +45,11 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.filter(link => !["Pricing", "How It Works"].includes(link.label)).map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-[14px] font-medium text-[#111111]/70 hover:text-[#111111] tracking-wide uppercase transition-colors duration-200"
+              className="text-[15px] font-medium text-[#111111]/70 hover:text-[#111111] transition-colors duration-200"
               style={{ fontFamily: "var(--font-display)" }}
             >
               {link.label}

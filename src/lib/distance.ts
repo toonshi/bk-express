@@ -75,9 +75,9 @@ export async function calculateRoute(
 }
 
 export const PRICING = {
-  baseFee: 50, // KES
+  baseFee: 350, // KES
   ratePerKm: 25, // KES per km
-  minimumFare: 150, // KES
+  minimumFare: 350, // KES
   currency: "KES",
 } as const;
 

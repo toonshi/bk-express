@@ -1,11 +1,6 @@
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/sections/HeroSection";
 import ServicesSection from "@/components/sections/ServicesSection";
-import FleetSection from "@/components/sections/FleetSection";
-import HowItWorksSection from "@/components/sections/HowItWorksSection";
-import CitiesSection from "@/components/sections/CitiesSection";
-import PricingSection from "@/components/sections/PricingSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 
 const TRUSTED_BY = [
@@ -20,7 +15,6 @@ const TRUSTED_BY = [
 export default function Home() {
   return (
     <main>
-      <Navbar />
       <HeroSection />
 
       {/* Trusted-by logos strip — mirrors Metronome "TRUSTED BY…" row */}
@@ -47,10 +41,6 @@ export default function Home() {
       </section>
 
       <ServicesSection />
-      <FleetSection />
-      <HowItWorksSection />
-      <CitiesSection />
-      <PricingSection />
       <TestimonialsSection />
       <Footer />
     </main>
